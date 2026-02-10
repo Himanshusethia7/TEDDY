@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Private Panda Paradise 🐼💕</title>
+    <title>My Black & White Panda Paradise 🐼</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,7 +13,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             min-height: 100vh;
             overflow: hidden;
             position: relative;
@@ -48,7 +48,7 @@
             right: 50px;
             width: 100px;
             height: 100px;
-            background: radial-gradient(circle at 30% 30%, #fff 0%, #f0f0f0 30%, #ddd 100%);
+            background: radial-gradient(circle at 30% 30%, #fff 0%, #f0f0f0 30%, #ccc 100%);
             border-radius: 50%;
             box-shadow: 0 0 60px rgba(255, 255, 255, 0.5);
             z-index: 2;
@@ -62,7 +62,7 @@
             left: 20px;
             width: 20px;
             height: 20px;
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.15);
             border-radius: 50%;
         }
         
@@ -96,10 +96,12 @@
         
         .bamboo-stalk {
             width: 25px;
-            background: linear-gradient(to right, #2e7d32, #1b5e20, #2e7d32);
+            background: linear-gradient(to right, #333, #222, #333);
             position: relative;
             border-radius: 12px;
             animation: bambooSway 8s infinite ease-in-out;
+            border-left: 2px solid #444;
+            border-right: 2px solid #111;
         }
         
         .bamboo-stalk::before {
@@ -107,7 +109,7 @@
             position: absolute;
             width: 100%;
             height: 20px;
-            background: #1b5e20;
+            background: #222;
             top: -20px;
             border-radius: 12px 12px 0 0;
         }
@@ -116,10 +118,11 @@
             position: absolute;
             width: 40px;
             height: 15px;
-            background: #4caf50;
+            background: #444;
             border-radius: 20px 0 20px 0;
             transform-origin: left center;
             animation: leafFlutter 3s infinite;
+            border: 1px solid #555;
         }
         
         @keyframes bambooSway {
@@ -147,14 +150,14 @@
         
         /* Secret Welcome */
         .secret-welcome {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             border-radius: 30px;
             padding: 40px;
             margin-bottom: 50px;
             width: 90%;
             max-width: 600px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
             text-align: center;
             animation: fadeIn 2s;
@@ -167,12 +170,12 @@
         
         .secret-title {
             font-size: 3rem;
-            background: linear-gradient(45deg, #ff6b8b, #ffd166);
+            background: linear-gradient(45deg, #fff, #aaa, #fff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 20px;
-            text-shadow: 0 0 30px rgba(255, 107, 139, 0.3);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
         }
         
         .secret-message {
@@ -182,7 +185,7 @@
             margin-bottom: 30px;
         }
         
-        /* Realistic Panda */
+        /* Realistic Black & White Panda */
         .panda-container {
             position: relative;
             width: 300px;
@@ -195,13 +198,13 @@
             position: absolute;
             width: 250px;
             height: 250px;
-            background: #2d3047;
+            background: #000;
             border-radius: 50%;
             top: 25px;
             left: 25px;
             box-shadow: 
                 0 20px 40px rgba(0, 0, 0, 0.4),
-                inset 0 -20px 40px rgba(255, 255, 255, 0.1);
+                inset 0 -20px 40px rgba(100, 100, 100, 0.1);
             animation: pandaBreathe 4s infinite ease-in-out;
             overflow: hidden;
         }
@@ -216,19 +219,31 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 30% 30%, 
-                rgba(255, 255, 255, 0.1) 0%,
+                rgba(150, 150, 150, 0.1) 0%,
                 transparent 50%);
             border-radius: 50%;
+        }
+        
+        .panda-white-fur {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: #fff;
+            border-radius: 50%;
+            top: 35px;
+            left: 35px;
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .panda-ear {
             position: absolute;
             width: 70px;
             height: 70px;
-            background: #2d3047;
+            background: #000;
             border-radius: 50%;
             top: 0;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid #333;
         }
         
         .panda-ear.left { left: 40px; }
@@ -239,7 +254,7 @@
             position: absolute;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(100, 100, 100, 0.2);
             border-radius: 50%;
             top: 15px;
             left: 15px;
@@ -249,10 +264,11 @@
             position: absolute;
             width: 90px;
             height: 70px;
-            background: #2d3047;
+            background: #000;
             border-radius: 50%;
             top: 60px;
             box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid #222;
         }
         
         .panda-eye-patch.left { left: 30px; }
@@ -268,6 +284,7 @@
             left: 25px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #aaa;
         }
         
         .panda-eye::before {
@@ -275,11 +292,12 @@
             position: absolute;
             width: 25px;
             height: 25px;
-            background: #2d3047;
+            background: #000;
             border-radius: 50%;
             top: 7px;
             left: 7px;
             animation: blink 5s infinite;
+            border: 1px solid #333;
         }
         
         .panda-eye::after {
@@ -303,24 +321,27 @@
             position: absolute;
             width: 30px;
             height: 20px;
-            background: #ff6b8b;
+            background: #000;
             border-radius: 50%;
             top: 140px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
         }
         
         .panda-mouth {
             position: absolute;
             width: 60px;
             height: 30px;
-            border-bottom: 8px solid #2d3047;
+            border-bottom: 8px solid #000;
             border-radius: 0 0 60px 60px;
             top: 170px;
             left: 50%;
             transform: translateX(-50%);
             animation: smile 10s infinite;
+            border-left: 2px solid #333;
+            border-right: 2px solid #333;
         }
         
         @keyframes smile {
@@ -332,10 +353,11 @@
             position: absolute;
             width: 80px;
             height: 40px;
-            background: #2d3047;
+            background: #000;
             border-radius: 40px;
             bottom: 60px;
             animation: armMove 8s infinite;
+            border: 2px solid #222;
         }
         
         .panda-arm.left {
@@ -362,24 +384,26 @@
             z-index: 5;
         }
         
-        .love-particle {
+        .snow-particle {
             position: absolute;
-            font-size: 20px;
+            background: white;
+            border-radius: 50%;
             opacity: 0;
-            animation: particleFloat 3s forwards;
+            animation: snowFloat 3s forwards;
+            box-shadow: 0 0 5px white;
         }
         
-        @keyframes particleFloat {
+        @keyframes snowFloat {
             0% { 
                 transform: translate(0, 0) scale(0); 
                 opacity: 0; 
             }
             10% { 
                 transform: translate(var(--tx), var(--ty)) scale(1); 
-                opacity: 1; 
+                opacity: 0.8; 
             }
             90% { 
-                opacity: 1; 
+                opacity: 0.8; 
             }
             100% { 
                 transform: translate(calc(var(--tx) * 2), calc(var(--ty) * 3)) scale(0); 
@@ -392,13 +416,14 @@
             position: absolute;
             width: 15px;
             height: 60px;
-            background: linear-gradient(to right, #4caf50, #2e7d32);
+            background: linear-gradient(to right, #444, #333, #444);
             border-radius: 7px;
             bottom: 100px;
             left: 50%;
             transform: translateX(-50%) rotate(30deg);
             display: none;
             animation: chew 2s infinite;
+            border: 1px solid #555;
         }
         
         @keyframes chew {
@@ -410,10 +435,11 @@
         .heart-trail {
             position: fixed;
             font-size: 20px;
-            color: #ff6b8b;
+            color: white;
             pointer-events: none;
             z-index: 4;
             animation: trailFade 1s forwards;
+            text-shadow: 0 0 10px white;
         }
         
         @keyframes trailFade {
@@ -427,14 +453,14 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
             padding: 20px 40px;
             border-radius: 50px;
-            color: rgba(255, 255, 255, 0.9);
+            color: white;
             font-size: 1.1rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             z-index: 100;
             display: none;
             animation: messageSlide 0.5s;
@@ -460,10 +486,10 @@
             position: fixed;
             width: 6px;
             height: 6px;
-            background: #ffd166;
+            background: white;
             border-radius: 50%;
             filter: blur(1px);
-            box-shadow: 0 0 10px #ffd166;
+            box-shadow: 0 0 10px white;
             animation: fireflyMove 15s infinite linear;
             z-index: 1;
         }
@@ -474,6 +500,29 @@
             50% { transform: translate(50px, 100px); }
             75% { transform: translate(-50px, 50px); }
             100% { transform: translate(0, 0); }
+        }
+        
+        /* Snowfall */
+        .snowfall {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .snowflake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: snowfall linear infinite;
+            opacity: 0.8;
+            box-shadow: 0 0 5px white;
+        }
+        
+        @keyframes snowfall {
+            0% { transform: translateY(-100px) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
         }
         
         /* Responsive */
@@ -492,6 +541,13 @@
                 height: 200px;
             }
             
+            .panda-white-fur {
+                width: 140px;
+                height: 140px;
+                top: 30px;
+                left: 30px;
+            }
+            
             .moon {
                 width: 60px;
                 height: 60px;
@@ -508,6 +564,9 @@
     <!-- Moon -->
     <div class="moon"></div>
     
+    <!-- Snowfall -->
+    <div class="snowfall" id="snowfall"></div>
+    
     <!-- Bamboo Forest -->
     <div class="bamboo-forest" id="bambooForest"></div>
     
@@ -520,19 +579,20 @@
     <div class="container">
         <!-- Secret Welcome -->
         <div class="secret-welcome">
-            <h1 class="secret-title">Welcome to Our Secret Panda Garden</h1>
+            <h1 class="secret-title">My Black & White World 🐼</h1>
             <p class="secret-message">
-                This magical place exists only for you, my love.<br>
-                Every star in this sky shines for you.<br>
-                Every bamboo leaf whispers your name.<br>
-                Touch the panda and discover our secret world.
+                In a world of black and white,<br>
+                You bring all the color to my life.<br>
+                Touch the panda and watch magic unfold,<br>
+                In this secret garden, our story is told.
             </p>
         </div>
         
-        <!-- Realistic Interactive Panda -->
+        <!-- Realistic Black & White Panda -->
         <div class="panda-container" id="mainPanda">
             <div class="panda-body">
                 <div class="panda-fur"></div>
+                <div class="panda-white-fur"></div>
                 <div class="panda-ear left"></div>
                 <div class="panda-ear right"></div>
                 <div class="panda-eye-patch left">
@@ -553,7 +613,7 @@
         
         <!-- Hidden Love Counter -->
         <div class="love-counter">
-            <i class="fas fa-heart"></i> <span id="loveScore">0</span>
+            <i class="fas fa-heart" style="color: white;"></i> <span id="loveScore" style="color: white;">0</span>
         </div>
         
         <!-- Private Message Display -->
@@ -561,20 +621,21 @@
     </div>
 
     <script>
-        // Initialize the private panda sanctuary
+        // Initialize the black & white panda sanctuary
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
+            createSnowfall();
             createBambooForest();
             createFireflies();
             initPandaInteractions();
             initMouseTrail();
             startAmbientSounds();
             
-            // Easter egg for her only
-            console.log("%c🐼 Welcome to your private paradise, my love 💕", 
-                "color: #ff6b8b; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #ff6b8b;");
-            console.log("%cThis world was created just for you.", 
-                "color: #ffd166; font-size: 16px;");
+            // Special message for her
+            console.log("%c🐼 Welcome to our monochrome paradise", 
+                "color: white; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px white;");
+            console.log("%cBlack and white, just like our panda, but you add all the color to my world.",
+                "color: #ccc; font-size: 16px;");
         });
         
         // Create starry night sky
@@ -592,6 +653,24 @@
                 star.style.animationDelay = Math.random() * 3 + 's';
                 star.style.opacity = Math.random() * 0.7 + 0.3;
                 starsContainer.appendChild(star);
+            }
+        }
+        
+        // Create snowfall
+        function createSnowfall() {
+            const snowfall = document.getElementById('snowfall');
+            const snowflakeCount = 100;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.style.width = Math.random() * 5 + 2 + 'px';
+                snowflake.style.height = snowflake.style.width;
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 10 + 5 + 's';
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+                snowfall.appendChild(snowflake);
             }
         }
         
@@ -625,7 +704,7 @@
         // Create ambient fireflies
         function createFireflies() {
             const container = document.getElementById('fireflies');
-            const fireflyCount = 20;
+            const fireflyCount = 15;
             
             for (let i = 0; i < fireflyCount; i++) {
                 const firefly = document.createElement('div');
@@ -633,7 +712,7 @@
                 firefly.style.left = Math.random() * 100 + 'vw';
                 firefly.style.top = Math.random() * 100 + 'vh';
                 firefly.style.animationDelay = Math.random() * 15 + 's';
-                firefly.style.opacity = Math.random() * 0.7 + 0.3;
+                firefly.style.opacity = Math.random() * 0.5 + 0.3;
                 container.appendChild(firefly);
             }
         }
@@ -651,8 +730,8 @@
                 interactionCount++;
                 document.getElementById('loveScore').textContent = interactionCount;
                 
-                // Create love particles
-                createLoveParticles(e.clientX, e.clientY);
+                // Create snow particles
+                createSnowParticles(e.clientX, e.clientY);
                 
                 // Panda reaction based on click location
                 const rect = panda.getBoundingClientRect();
@@ -662,14 +741,14 @@
                 if (x > 100 && x < 200 && y > 100 && y < 200) {
                     // Clicked on face - panda smiles
                     panda.querySelector('.panda-mouth').style.animation = 'smile 2s infinite';
-                    showPrivateMessage("You found my smile! 🐼💖");
+                    showPrivateMessage("You found my smile! 🐼❄️");
                 } else if (y < 100) {
                     // Clicked on ears - panda gets shy
                     pandaBody.style.animation = 'pandaBreathe 0.5s infinite';
                     setTimeout(() => {
                         pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
                     }, 1000);
-                    showPrivateMessage("Oh! My ears are ticklish! 😊");
+                    showPrivateMessage("Oh! My ears are ticklish! 🐼");
                 } else {
                     // Random panda action
                     const actions = [
@@ -680,15 +759,14 @@
                     actions[Math.floor(Math.random() * actions.length)]();
                 }
                 
-                // Change background color slightly
-                document.body.style.background = `linear-gradient(135deg, 
-                    hsl(${230 + interactionCount % 30}, 40%, 15%) 0%, 
-                    hsl(${210 + interactionCount % 30}, 40%, 12%) 100%)`;
+                // Change moon brightness
+                const moon = document.querySelector('.moon');
+                moon.style.boxShadow = `0 0 ${60 + interactionCount % 40}px rgba(255, 255, 255, 0.6)`;
             });
             
             // Hover interaction
             panda.addEventListener('mouseenter', function() {
-                pandaBody.style.filter = 'brightness(1.2)';
+                pandaBody.style.filter = 'brightness(1.3)';
                 pandaBody.style.transform = 'scale(1.05)';
             });
             
@@ -705,7 +783,7 @@
                 leftArm.style.animation = 'armMove 0.5s infinite';
                 rightArm.style.animation = 'armMove 0.5s infinite';
                 
-                showPrivateMessage("Hello there! 👋🐼");
+                showPrivateMessage("Hello beautiful! 🐼👋");
                 
                 setTimeout(() => {
                     leftArm.style.animation = 'armMove 8s infinite';
@@ -741,25 +819,24 @@
                     pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
                 }, 600);
                 
-                showPrivateMessage("Let's dance together! 💃🐼");
+                showPrivateMessage("Let's dance in the snow! 💃🐼");
             }
         }
         
-        // Create love particles
-        function createLoveParticles(x, y) {
+        // Create snow particles
+        function createSnowParticles(x, y) {
             const effects = document.getElementById('effects');
-            const particleCount = 15;
-            const symbols = ['💖', '💕', '💗', '💓', '💞', '💘', '🐼', '🎋'];
+            const particleCount = 20;
             
             for (let i = 0; i < particleCount; i++) {
                 setTimeout(() => {
                     const particle = document.createElement('div');
-                    particle.className = 'love-particle';
-                    particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    particle.className = 'snow-particle';
                     particle.style.left = x + 'px';
                     particle.style.top = y + 'px';
-                    particle.style.color = `hsl(${Math.random() * 60 + 300}, 100%, 70%)`;
-                    particle.style.fontSize = Math.random() * 20 + 15 + 'px';
+                    particle.style.width = Math.random() * 8 + 4 + 'px';
+                    particle.style.height = particle.style.width;
+                    particle.style.background = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
                     
                     // Random direction
                     const angle = Math.random() * Math.PI * 2;
@@ -775,7 +852,7 @@
                             particle.parentNode.removeChild(particle);
                         }
                     }, 3000);
-                }, i * 50);
+                }, i * 30);
             }
         }
         
@@ -796,27 +873,27 @@
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
                 if (distance > 20) {
-                    createHeartTrail(e.clientX, e.clientY);
+                    createSnowTrail(e.clientX, e.clientY);
                     lastX = e.clientX;
                     lastY = e.clientY;
                 }
             });
         }
         
-        function createHeartTrail(x, y) {
-            const heart = document.createElement('div');
-            heart.className = 'heart-trail';
-            heart.textContent = '💖';
-            heart.style.left = x + 'px';
-            heart.style.top = y + 'px';
-            heart.style.fontSize = Math.random() * 15 + 10 + 'px';
+        function createSnowTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.className = 'heart-trail';
+            trail.textContent = '❄️';
+            trail.style.left = x + 'px';
+            trail.style.top = y + 'px';
+            trail.style.fontSize = Math.random() * 15 + 10 + 'px';
             
-            document.body.appendChild(heart);
+            document.body.appendChild(trail);
             
-            // Remove heart after animation
+            // Remove trail after animation
             setTimeout(() => {
-                if (heart.parentNode) {
-                    heart.parentNode.removeChild(heart);
+                if (trail.parentNode) {
+                    trail.parentNode.removeChild(trail);
                 }
             }, 1000);
         }
@@ -835,13 +912,12 @@
         
         // Ambient nature sounds
         function startAmbientSounds() {
-            // Create subtle wind and bamboo sounds using Web Audio API
             try {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 
                 // Wind sound
                 const windGain = audioContext.createGain();
-                windGain.gain.value = 0.05;
+                windGain.gain.value = 0.03;
                 windGain.connect(audioContext.destination);
                 
                 function createWindOscillator() {
@@ -851,17 +927,17 @@
                     oscillator.connect(gainNode);
                     gainNode.connect(windGain);
                     
-                    oscillator.frequency.value = 100 + Math.random() * 50;
+                    oscillator.frequency.value = 80 + Math.random() * 40;
                     oscillator.type = 'sine';
                     
-                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 3 + Math.random() * 2);
+                    gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 4 + Math.random() * 3);
                     
                     oscillator.start(audioContext.currentTime);
-                    oscillator.stop(audioContext.currentTime + 3 + Math.random() * 2);
+                    oscillator.stop(audioContext.currentTime + 4 + Math.random() * 3);
                     
                     // Create next wind sound
-                    setTimeout(createWindOscillator, 2000 + Math.random() * 3000);
+                    setTimeout(createWindOscillator, 3000 + Math.random() * 4000);
                 }
                 
                 // Start wind sounds
@@ -875,45 +951,47 @@
         // Keyboard shortcuts for special interactions
         document.addEventListener('keydown', function(e) {
             if (e.key === ' ') {
-                // Space bar - create star shower
-                createStarShower();
+                // Space bar - create snow storm
+                createSnowStorm();
             } else if (e.key === 'p' || e.key === 'P') {
                 // P key - panda party
                 createPandaParty();
+            } else if (e.key === 'm' || e.key === 'M') {
+                // M key - moon magic
+                moonMagic();
             }
         });
         
-        function createStarShower() {
-            for (let i = 0; i < 30; i++) {
+        function createSnowStorm() {
+            for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
-                    createLoveParticles(
+                    createSnowParticles(
                         Math.random() * window.innerWidth,
                         Math.random() * window.innerHeight
                     );
-                }, i * 100);
+                }, i * 50);
             }
-            showPrivateMessage("A shower of stars just for you! ✨");
+            showPrivateMessage("Snowstorm! ❄️❄️❄️");
         }
         
         function createPandaParty() {
             const panda = document.getElementById('mainPanda');
             const pandaBody = panda.querySelector('.panda-body');
             
-            // Colorful disco lights
-            const colors = ['#ff6b8b', '#ffd166', '#4ecdc4', '#9d4edd', '#ff9e00'];
-            let colorIndex = 0;
+            // Black and white disco
+            let isBlack = true;
             
             const discoInterval = setInterval(() => {
-                document.body.style.background = colors[colorIndex];
-                colorIndex = (colorIndex + 1) % colors.length;
-            }, 300);
+                document.body.style.background = isBlack ? '#fff' : '#000';
+                isBlack = !isBlack;
+            }, 200);
             
             // Panda dances
             pandaBody.style.animation = 'none';
             let angle = 0;
             const danceInterval = setInterval(() => {
                 pandaBody.style.transform = `rotate(${angle}deg) scale(1.1)`;
-                angle = (angle + 10) % 360;
+                angle = (angle + 15) % 360;
             }, 100);
             
             // Stop after 5 seconds
@@ -922,24 +1000,39 @@
                 clearInterval(danceInterval);
                 pandaBody.style.transform = 'rotate(0deg) scale(1)';
                 pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
-                document.body.style.background = 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)';
-                showPrivateMessage("What a fun party! 🎉🐼");
+                document.body.style.background = 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)';
+                showPrivateMessage("Black & White Party! 🎉🐼");
             }, 5000);
         }
         
-        // Auto-interaction every minute to keep it alive
-        setInterval(() => {
-            const panda = document.getElementById('mainPanda');
-            const rect = panda.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
+        function moonMagic() {
+            const moon = document.querySelector('.moon');
+            const originalSize = moon.style.width;
             
-            createLoveParticles(x, y);
+            // Moon grows and pulsates
+            moon.style.animation = 'none';
+            moon.style.transition = 'all 1s';
+            moon.style.width = '200px';
+            moon.style.height = '200px';
+            moon.style.boxShadow = '0 0 100px rgba(255, 255, 255, 0.8)';
             
-            // Random panda action
-            const actions = [() => {}, () => pandaWaves(), () => showPrivateMessage("I'm always thinking of you 💕")];
-            actions[Math.floor(Math.random() * actions.length)]();
-        }, 60000);
-    </script>
-</body>
-</html>
+            // Create moon rays
+            for (let i = 0; i < 12; i++) {
+                const angle = (i * 30) * Math.PI / 180;
+                const distance = 150;
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
+                
+                createSnowParticles(
+                    window.innerWidth - 100 + x,
+                    100 + y
+                );
+            }
+            
+            showPrivateMessage("Moon magic! 🌕✨");
+            
+            // Return to normal
+            setTimeout(() => {
+                moon.style.width = originalSize;
+                moon.style.height = originalSize;
+                moon.style.boxShadow = '0 0 60px rgba(255, 255, 255, 0.5)';
