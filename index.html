@@ -3,906 +3,943 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Panda Princess 🐼💖</title>
+    <title>My Private Panda Paradise 🐼💕</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden;
             position: relative;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
         }
         
-        /* Falling Hearts Background */
-        .hearts-background {
+        /* Starry Night Sky */
+        .stars {
             position: fixed;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: -1;
+            z-index: 1;
         }
         
-        .heart {
+        .star {
             position: absolute;
-            color: #ff6b8b;
-            font-size: 20px;
-            opacity: 0;
-            animation: falling 15s linear infinite;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
         }
         
-        @keyframes falling {
-            0% {
-                top: -50px;
-                opacity: 0;
-                transform: translateX(0) rotate(0deg);
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                top: 100vh;
-                opacity: 0;
-                transform: translateX(100px) rotate(360deg);
-            }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        /* Moon */
+        .moon {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, #fff 0%, #f0f0f0 30%, #ddd 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+            animation: moonFloat 15s infinite ease-in-out;
+        }
+        
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+        }
+        
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            width: 15px;
+            height: 15px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+        }
+        
+        @keyframes moonFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
         }
         
         /* Bamboo Forest */
-        .bamboo {
+        .bamboo-forest {
             position: fixed;
             bottom: 0;
+            width: 100%;
+            height: 50vh;
+            z-index: 3;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+        
+        .bamboo-stalk {
             width: 25px;
-            background: linear-gradient(to right, #4CAF50, #2E7D32);
+            background: linear-gradient(to right, #2e7d32, #1b5e20, #2e7d32);
+            position: relative;
             border-radius: 12px;
-            z-index: -1;
+            animation: bambooSway 8s infinite ease-in-out;
         }
         
-        .bamboo:nth-child(1) {
-            left: 5%;
-            height: 300px;
-            animation: sway1 8s infinite ease-in-out;
+        .bamboo-stalk::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            background: #1b5e20;
+            top: -20px;
+            border-radius: 12px 12px 0 0;
         }
         
-        .bamboo:nth-child(2) {
-            left: 12%;
-            height: 250px;
-            animation: sway2 7s infinite ease-in-out;
+        .bamboo-leaf {
+            position: absolute;
+            width: 40px;
+            height: 15px;
+            background: #4caf50;
+            border-radius: 20px 0 20px 0;
+            transform-origin: left center;
+            animation: leafFlutter 3s infinite;
         }
         
-        .bamboo:nth-child(3) {
-            right: 8%;
-            height: 320px;
-            animation: sway1 9s infinite ease-in-out;
-        }
-        
-        .bamboo:nth-child(4) {
-            right: 15%;
-            height: 280px;
-            animation: sway2 6.5s infinite ease-in-out;
-        }
-        
-        @keyframes sway1 {
+        @keyframes bambooSway {
             0%, 100% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(10px) rotate(1deg); }
+            33% { transform: translateX(-5px) rotate(-1deg); }
+            66% { transform: translateX(5px) rotate(1deg); }
         }
         
-        @keyframes sway2 {
-            0%, 100% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(-10px) rotate(-1deg); }
+        @keyframes leafFlutter {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
         }
         
         /* Main Container */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            position: relative;
+            z-index: 10;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
-            z-index: 1;
+            padding: 20px;
         }
         
-        /* Love Message Box */
-        .love-box {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+        /* Secret Welcome */
+        .secret-welcome {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
             border-radius: 30px;
-            padding: 50px;
-            margin-bottom: 40px;
+            padding: 40px;
+            margin-bottom: 50px;
             width: 90%;
-            max-width: 800px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-            border: 8px solid white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .love-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 10px;
-            background: linear-gradient(90deg, #ff6b8b, #ffd166, #4ecdc4);
-        }
-        
-        .panda-title {
-            font-size: 4rem;
-            color: #2d3047;
+            max-width: 600px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
             text-align: center;
+            animation: fadeIn 2s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .secret-title {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b8b, #ffd166);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 20px;
-            text-shadow: 3px 3px 0 rgba(255, 107, 139, 0.2);
+            text-shadow: 0 0 30px rgba(255, 107, 139, 0.3);
         }
         
-        .love-message {
-            font-size: 1.8rem;
-            color: #555;
-            text-align: center;
+        .secret-message {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
             margin-bottom: 30px;
-            font-weight: 300;
         }
         
-        .heart-beat {
-            font-size: 3rem;
-            color: #ff6b8b;
-            text-align: center;
-            animation: heartbeat 1.5s infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        /* Interactive Panda */
-        .main-panda {
-            width: 200px;
-            height: 200px;
-            margin: 40px auto;
+        /* Realistic Panda */
+        .panda-container {
             position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
             cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .main-panda:hover {
-            transform: scale(1.1);
         }
         
         .panda-body {
-            width: 180px;
-            height: 180px;
+            position: absolute;
+            width: 250px;
+            height: 250px;
             background: #2d3047;
             border-radius: 50%;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            animation: float 6s ease-in-out infinite;
+            top: 25px;
+            left: 25px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                inset 0 -20px 40px rgba(255, 255, 255, 0.1);
+            animation: pandaBreathe 4s infinite ease-in-out;
+            overflow: hidden;
         }
         
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-30px); }
+        @keyframes pandaBreathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .panda-fur {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 50%);
+            border-radius: 50%;
         }
         
         .panda-ear {
             position: absolute;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background: #2d3047;
             border-radius: 50%;
-            top: -20px;
+            top: 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .panda-ear.left { left: 20px; }
-        .panda-ear.right { right: 20px; }
+        .panda-ear.left { left: 40px; }
+        .panda-ear.right { right: 40px; }
+        
+        .panda-ear::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: 15px;
+            left: 15px;
+        }
+        
+        .panda-eye-patch {
+            position: absolute;
+            width: 90px;
+            height: 70px;
+            background: #2d3047;
+            border-radius: 50%;
+            top: 60px;
+            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .panda-eye-patch.left { left: 30px; }
+        .panda-eye-patch.right { right: 30px; }
         
         .panda-eye {
             position: absolute;
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
             background: white;
             border-radius: 50%;
-            top: 50px;
+            top: 15px;
+            left: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .panda-eye::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #2d3047;
+            border-radius: 50%;
+            top: 7px;
+            left: 7px;
+            animation: blink 5s infinite;
         }
         
         .panda-eye::after {
             content: '';
             position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #2d3047;
+            width: 10px;
+            height: 10px;
+            background: white;
             border-radius: 50%;
             top: 10px;
             left: 10px;
         }
         
-        .panda-eye.left { left: 40px; }
-        .panda-eye.right { right: 40px; }
+        @keyframes blink {
+            0%, 45%, 55%, 100% { transform: scaleY(1); }
+            48%, 52% { transform: scaleY(0.1); }
+            50% { transform: scaleY(0.05); }
+        }
         
         .panda-nose {
             position: absolute;
-            width: 25px;
-            height: 15px;
-            background: #2d3047;
+            width: 30px;
+            height: 20px;
+            background: #ff6b8b;
             border-radius: 50%;
-            top: 100px;
+            top: 140px;
             left: 50%;
             transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .panda-mouth {
             position: absolute;
-            width: 40px;
-            height: 20px;
+            width: 60px;
+            height: 30px;
             border-bottom: 8px solid #2d3047;
-            border-radius: 0 0 40px 40px;
-            top: 120px;
+            border-radius: 0 0 60px 60px;
+            top: 170px;
             left: 50%;
             transform: translateX(-50%);
+            animation: smile 10s infinite;
         }
         
-        /* Love Actions */
-        .love-actions {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 40px 0;
+        @keyframes smile {
+            0%, 70%, 100% { width: 60px; }
+            75%, 95% { width: 80px; }
         }
         
-        .love-btn {
-            background: linear-gradient(135deg, #ff6b8b, #ff8e9e);
-            color: white;
-            border: none;
+        .panda-arm {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background: #2d3047;
+            border-radius: 40px;
+            bottom: 60px;
+            animation: armMove 8s infinite;
+        }
+        
+        .panda-arm.left {
+            left: 30px;
+            transform: rotate(30deg);
+        }
+        
+        .panda-arm.right {
+            right: 30px;
+            transform: rotate(-30deg);
+        }
+        
+        @keyframes armMove {
+            0%, 100% { transform: rotate(30deg); }
+            50% { transform: rotate(20deg); }
+        }
+        
+        /* Panda Interaction Effects */
+        .interaction-effects {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .love-particle {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: particleFloat 3s forwards;
+        }
+        
+        @keyframes particleFloat {
+            0% { 
+                transform: translate(0, 0) scale(0); 
+                opacity: 0; 
+            }
+            10% { 
+                transform: translate(var(--tx), var(--ty)) scale(1); 
+                opacity: 1; 
+            }
+            90% { 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(calc(var(--tx) * 2), calc(var(--ty) * 3)) scale(0); 
+                opacity: 0; 
+            }
+        }
+        
+        /* Bamboo Eating Animation */
+        .bamboo-piece {
+            position: absolute;
+            width: 15px;
+            height: 60px;
+            background: linear-gradient(to right, #4caf50, #2e7d32);
+            border-radius: 7px;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) rotate(30deg);
+            display: none;
+            animation: chew 2s infinite;
+        }
+        
+        @keyframes chew {
+            0%, 100% { transform: translateX(-50%) rotate(30deg) translateY(0); }
+            50% { transform: translateX(-50%) rotate(30deg) translateY(-10px); }
+        }
+        
+        /* Heart Trail */
+        .heart-trail {
+            position: fixed;
+            font-size: 20px;
+            color: #ff6b8b;
+            pointer-events: none;
+            z-index: 4;
+            animation: trailFade 1s forwards;
+        }
+        
+        @keyframes trailFade {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+        
+        /* Private Message */
+        .private-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             padding: 20px 40px;
             border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(255, 107, 139, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .love-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 107, 139, 0.4);
-        }
-        
-        .love-btn:active {
-            transform: translateY(-2px);
-        }
-        
-        .love-btn.secondary {
-            background: linear-gradient(135deg, #4ecdc4, #6ed7d0);
-            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.3);
-        }
-        
-        .love-btn.secondary:hover {
-            box-shadow: 0 15px 30px rgba(78, 205, 196, 0.4);
-        }
-        
-        .love-btn.tertiary {
-            background: linear-gradient(135deg, #ffd166, #ffe08c);
-            color: #2d3047;
-            box-shadow: 0 10px 20px rgba(255, 209, 102, 0.3);
-        }
-        
-        .love-btn.tertiary:hover {
-            box-shadow: 0 15px 30px rgba(255, 209, 102, 0.4);
-        }
-        
-        /* Secret Messages */
-        .secret-messages {
-            margin-top: 50px;
-            width: 90%;
-            max-width: 600px;
-        }
-        
-        .message-container {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border: 5px solid #ffd166;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 100;
             display: none;
+            animation: messageSlide 0.5s;
         }
         
-        .message-container.show {
-            display: block;
-            animation: fadeIn 0.5s;
+        @keyframes messageSlide {
+            from { transform: translateX(-50%) translateY(100px); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .message-title {
-            font-size: 2rem;
-            color: #2d3047;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .message-content {
-            font-size: 1.5rem;
-            color: #555;
-            line-height: 1.6;
-            text-align: center;
-            font-style: italic;
-        }
-        
-        /* Floating Pandas */
-        .floating-panda {
-            position: fixed;
-            width: 80px;
-            height: 80px;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        
-        .floating-panda:nth-child(1) {
-            top: 10%;
-            left: 5%;
-            animation: float1 25s infinite linear;
-        }
-        
-        .floating-panda:nth-child(2) {
-            top: 20%;
-            right: 8%;
-            animation: float2 30s infinite linear;
-        }
-        
-        .floating-panda:nth-child(3) {
-            bottom: 15%;
-            left: 15%;
-            animation: float3 35s infinite linear;
-        }
-        
-        @keyframes float1 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(100px, 100px) rotate(90deg); }
-            50% { transform: translate(0, 200px) rotate(180deg); }
-            75% { transform: translate(-100px, 100px) rotate(270deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
-        }
-        
-        @keyframes float2 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(-150px, 50px) rotate(-90deg); }
-            50% { transform: translate(0, 100px) rotate(-180deg); }
-            75% { transform: translate(150px, 50px) rotate(-270deg); }
-            100% { transform: translate(0, 0) rotate(-360deg); }
-        }
-        
-        @keyframes float3 {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            25% { transform: translate(80px, -80px) rotate(120deg); }
-            50% { transform: translate(0, -160px) rotate(240deg); }
-            75% { transform: translate(-80px, -80px) rotate(360deg); }
-            100% { transform: translate(0, 0) rotate(480deg); }
-        }
-        
-        /* Love Counter */
+        /* Hidden Love Counter */
         .love-counter {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            top: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.5);
             font-size: 1.2rem;
-            color: #ff6b8b;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             z-index: 100;
         }
         
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            color: #777;
-            font-size: 1.1rem;
+        /* Ambient Fireflies */
+        .firefly {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: #ffd166;
+            border-radius: 50%;
+            filter: blur(1px);
+            box-shadow: 0 0 10px #ffd166;
+            animation: fireflyMove 15s infinite linear;
+            z-index: 1;
+        }
+        
+        @keyframes fireflyMove {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(100px, 50px); }
+            50% { transform: translate(50px, 100px); }
+            75% { transform: translate(-50px, 50px); }
+            100% { transform: translate(0, 0); }
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .panda-title {
-                font-size: 2.5rem;
+            .secret-title {
+                font-size: 2rem;
             }
             
-            .love-message {
-                font-size: 1.3rem;
-            }
-            
-            .love-box {
-                padding: 30px;
-            }
-            
-            .love-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .love-btn {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
-            
-            .bamboo {
-                display: none;
-            }
-            
-            .main-panda {
-                width: 150px;
-                height: 150px;
+            .panda-container {
+                width: 250px;
+                height: 250px;
             }
             
             .panda-body {
-                width: 135px;
-                height: 135px;
+                width: 200px;
+                height: 200px;
+            }
+            
+            .moon {
+                width: 60px;
+                height: 60px;
+                top: 20px;
+                right: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Falling Hearts -->
-    <div class="hearts-background" id="heartsContainer"></div>
+    <!-- Starry Night Sky -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Moon -->
+    <div class="moon"></div>
     
     <!-- Bamboo Forest -->
-    <div class="bamboo"></div>
-    <div class="bamboo"></div>
-    <div class="bamboo"></div>
-    <div class="bamboo"></div>
+    <div class="bamboo-forest" id="bambooForest"></div>
     
-    <!-- Floating Pandas -->
-    <div class="floating-panda">🐼</div>
-    <div class="floating-panda">🐼</div>
-    <div class="floating-panda">🐼</div>
+    <!-- Ambient Fireflies -->
+    <div id="fireflies"></div>
+    
+    <!-- Interaction Effects -->
+    <div class="interaction-effects" id="effects"></div>
     
     <div class="container">
-        <!-- Main Love Message -->
-        <div class="love-box">
-            <h1 class="panda-title">My Panda Princess 🐼</h1>
-            <p class="love-message" id="mainMessage">
-                To the most beautiful soul I've ever known,<br>
-                You light up my world in ways no one else can.<br>
-                Just like a panda brings joy and comfort,<br>
-                You bring endless happiness to my life.<br>
-                I love you more than words can express.
+        <!-- Secret Welcome -->
+        <div class="secret-welcome">
+            <h1 class="secret-title">Welcome to Our Secret Panda Garden</h1>
+            <p class="secret-message">
+                This magical place exists only for you, my love.<br>
+                Every star in this sky shines for you.<br>
+                Every bamboo leaf whispers your name.<br>
+                Touch the panda and discover our secret world.
             </p>
-            <div class="heart-beat">
-                <i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i>
-            </div>
         </div>
         
-        <!-- Interactive Panda -->
-        <div class="main-panda" id="interactivePanda">
+        <!-- Realistic Interactive Panda -->
+        <div class="panda-container" id="mainPanda">
             <div class="panda-body">
+                <div class="panda-fur"></div>
                 <div class="panda-ear left"></div>
                 <div class="panda-ear right"></div>
-                <div class="panda-eye left"></div>
-                <div class="panda-eye right"></div>
+                <div class="panda-eye-patch left">
+                    <div class="panda-eye"></div>
+                </div>
+                <div class="panda-eye-patch right">
+                    <div class="panda-eye"></div>
+                </div>
                 <div class="panda-nose"></div>
                 <div class="panda-mouth"></div>
+                <div class="panda-arm left"></div>
+                <div class="panda-arm right"></div>
             </div>
         </div>
         
-        <!-- Love Actions -->
-        <div class="love-actions">
-            <button class="love-btn" id="hugPanda">
-                <i class="fas fa-heart"></i> Hug The Panda
-            </button>
-            <button class="love-btn secondary" id="sendLove">
-                <i class="fas fa-heart-circle-plus"></i> Send Love
-            </button>
-            <button class="love-btn tertiary" id="secretMessage">
-                <i class="fas fa-envelope"></i> Secret Message
-            </button>
-        </div>
+        <!-- Bamboo Piece (for eating animation) -->
+        <div class="bamboo-piece" id="bambooPiece"></div>
         
-        <!-- Secret Messages Container -->
-        <div class="secret-messages">
-            <div class="message-container" id="messageBox">
-                <h2 class="message-title" id="messageTitle">My Darling 💖</h2>
-                <p class="message-content" id="messageText"></p>
-            </div>
-        </div>
-        
-        <!-- Love Counter -->
+        <!-- Hidden Love Counter -->
         <div class="love-counter">
-            <i class="fas fa-heart"></i>
-            <span id="loveCount">0</span> Love Sent
+            <i class="fas fa-heart"></i> <span id="loveScore">0</span>
         </div>
         
-        <!-- Footer -->
-        <div class="footer">
-            Made with infinite love for my precious panda 🐼💖
-        </div>
+        <!-- Private Message Display -->
+        <div class="private-message" id="privateMessage"></div>
     </div>
 
     <script>
-        // Initialize the website
+        // Initialize the private panda sanctuary
         document.addEventListener('DOMContentLoaded', function() {
-            // Create falling hearts
-            createHearts();
+            createStars();
+            createBambooForest();
+            createFireflies();
+            initPandaInteractions();
+            initMouseTrail();
+            startAmbientSounds();
             
-            // Initialize interactive panda
-            initPanda();
-            
-            // Initialize buttons
-            initButtons();
-            
-            // Start love counter
-            startLoveCounter();
+            // Easter egg for her only
+            console.log("%c🐼 Welcome to your private paradise, my love 💕", 
+                "color: #ff6b8b; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #ff6b8b;");
+            console.log("%cThis world was created just for you.", 
+                "color: #ffd166; font-size: 16px;");
         });
         
-        // Create falling hearts in background
-        function createHearts() {
-            const heartsContainer = document.getElementById('heartsContainer');
-            const heartCount = 50;
+        // Create starry night sky
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
             
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.innerHTML = '💖';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDelay = Math.random() * 15 + 's';
-                heart.style.fontSize = Math.random() * 15 + 15 + 'px';
-                heart.style.opacity = Math.random() * 0.5 + 0.3;
-                heartsContainer.appendChild(heart);
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 1 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.opacity = Math.random() * 0.7 + 0.3;
+                starsContainer.appendChild(star);
             }
         }
         
-        // Interactive Panda
-        function initPanda() {
-            const panda = document.getElementById('interactivePanda');
-            const pandaBody = panda.querySelector('.panda-body');
+        // Create bamboo forest
+        function createBambooForest() {
+            const forest = document.getElementById('bambooForest');
+            const stalkCount = 15;
             
-            // Panda click interaction
-            panda.addEventListener('click', function() {
-                // Animate panda
-                pandaBody.style.animation = 'none';
-                pandaBody.style.transform = 'scale(1.2)';
+            for (let i = 0; i < stalkCount; i++) {
+                const stalk = document.createElement('div');
+                stalk.className = 'bamboo-stalk';
+                stalk.style.height = Math.random() * 200 + 150 + 'px';
+                stalk.style.animationDelay = Math.random() * 8 + 's';
                 
-                // Create hearts around panda
-                createHeartsAround(20, panda.getBoundingClientRect());
+                // Add leaves
+                const leafCount = Math.floor(Math.random() * 3) + 2;
+                for (let j = 0; j < leafCount; j++) {
+                    const leaf = document.createElement('div');
+                    leaf.className = 'bamboo-leaf';
+                    leaf.style.left = Math.random() * 100 + '%';
+                    leaf.style.top = Math.random() * 100 + '%';
+                    leaf.style.animationDelay = Math.random() * 3 + 's';
+                    leaf.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+                    stalk.appendChild(leaf);
+                }
                 
-                // Play panda sound
-                playPandaSound();
+                forest.appendChild(stalk);
+            }
+        }
+        
+        // Create ambient fireflies
+        function createFireflies() {
+            const container = document.getElementById('fireflies');
+            const fireflyCount = 20;
+            
+            for (let i = 0; i < fireflyCount; i++) {
+                const firefly = document.createElement('div');
+                firefly.className = 'firefly';
+                firefly.style.left = Math.random() * 100 + 'vw';
+                firefly.style.top = Math.random() * 100 + 'vh';
+                firefly.style.animationDelay = Math.random() * 15 + 's';
+                firefly.style.opacity = Math.random() * 0.7 + 0.3;
+                container.appendChild(firefly);
+            }
+        }
+        
+        // Panda interactions
+        function initPandaInteractions() {
+            const panda = document.getElementById('mainPanda');
+            const pandaBody = panda.querySelector('.panda-body');
+            const bambooPiece = document.getElementById('bambooPiece');
+            let isEating = false;
+            let interactionCount = 0;
+            
+            // Click interaction
+            panda.addEventListener('click', function(e) {
+                interactionCount++;
+                document.getElementById('loveScore').textContent = interactionCount;
                 
-                // Show message
-                showMessage("Panda says: I love you!", "🐼💖");
+                // Create love particles
+                createLoveParticles(e.clientX, e.clientY);
                 
-                // Reset animation
-                setTimeout(() => {
-                    pandaBody.style.animation = 'float 6s ease-in-out infinite';
-                    pandaBody.style.transform = 'scale(1)';
-                }, 500);
+                // Panda reaction based on click location
+                const rect = panda.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x > 100 && x < 200 && y > 100 && y < 200) {
+                    // Clicked on face - panda smiles
+                    panda.querySelector('.panda-mouth').style.animation = 'smile 2s infinite';
+                    showPrivateMessage("You found my smile! 🐼💖");
+                } else if (y < 100) {
+                    // Clicked on ears - panda gets shy
+                    pandaBody.style.animation = 'pandaBreathe 0.5s infinite';
+                    setTimeout(() => {
+                        pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
+                    }, 1000);
+                    showPrivateMessage("Oh! My ears are ticklish! 😊");
+                } else {
+                    // Random panda action
+                    const actions = [
+                        () => pandaWaves(),
+                        () => pandaEats(),
+                        () => pandaDances()
+                    ];
+                    actions[Math.floor(Math.random() * actions.length)]();
+                }
+                
+                // Change background color slightly
+                document.body.style.background = `linear-gradient(135deg, 
+                    hsl(${230 + interactionCount % 30}, 40%, 15%) 0%, 
+                    hsl(${210 + interactionCount % 30}, 40%, 12%) 100%)`;
             });
             
-            // Panda hover effect
+            // Hover interaction
             panda.addEventListener('mouseenter', function() {
-                pandaBody.style.filter = 'brightness(1.1)';
+                pandaBody.style.filter = 'brightness(1.2)';
+                pandaBody.style.transform = 'scale(1.05)';
             });
             
             panda.addEventListener('mouseleave', function() {
                 pandaBody.style.filter = 'brightness(1)';
+                pandaBody.style.transform = 'scale(1)';
             });
+            
+            // Panda actions
+            function pandaWaves() {
+                const leftArm = panda.querySelector('.panda-arm.left');
+                const rightArm = panda.querySelector('.panda-arm.right');
+                
+                leftArm.style.animation = 'armMove 0.5s infinite';
+                rightArm.style.animation = 'armMove 0.5s infinite';
+                
+                showPrivateMessage("Hello there! 👋🐼");
+                
+                setTimeout(() => {
+                    leftArm.style.animation = 'armMove 8s infinite';
+                    rightArm.style.animation = 'armMove 8s infinite';
+                }, 2000);
+            }
+            
+            function pandaEats() {
+                if (isEating) return;
+                isEating = true;
+                
+                // Show bamboo piece
+                bambooPiece.style.display = 'block';
+                
+                showPrivateMessage("Yummy bamboo! 🎋");
+                
+                setTimeout(() => {
+                    bambooPiece.style.display = 'none';
+                    isEating = false;
+                }, 3000);
+            }
+            
+            function pandaDances() {
+                pandaBody.style.animation = 'none';
+                pandaBody.style.transform = 'rotate(10deg)';
+                
+                setTimeout(() => {
+                    pandaBody.style.transform = 'rotate(-10deg)';
+                }, 300);
+                
+                setTimeout(() => {
+                    pandaBody.style.transform = 'rotate(0deg)';
+                    pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
+                }, 600);
+                
+                showPrivateMessage("Let's dance together! 💃🐼");
+            }
         }
         
-        // Initialize action buttons
-        function initButtons() {
-            // Hug Panda button
-            document.getElementById('hugPanda').addEventListener('click', function() {
-                const panda = document.getElementById('interactivePanda');
-                const rect = panda.getBoundingClientRect();
-                
-                // Create lots of hearts
-                createHeartsAround(30, rect);
-                
-                // Animate button
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-                
-                // Show message
-                showMessage("Aww! The panda feels your hug and sends love back! 💕", "Hug Received 🐼");
-                
-                // Increase love counter
-                increaseLoveCounter();
-            });
+        // Create love particles
+        function createLoveParticles(x, y) {
+            const effects = document.getElementById('effects');
+            const particleCount = 15;
+            const symbols = ['💖', '💕', '💗', '💓', '💞', '💘', '🐼', '🎋'];
             
-            // Send Love button
-            document.getElementById('sendLove').addEventListener('click', function() {
-                // Create love explosion
-                createLoveExplosion();
-                
-                // Change main message
-                const messages = [
-                    "Your love fills my heart with endless joy.",
-                    "Every moment with you is a precious gift.",
-                    "You are the most beautiful part of my life.",
-                    "My love for you grows stronger every day.",
-                    "You are my forever and always."
-                ];
-                
-                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-                document.getElementById('mainMessage').textContent = randomMessage;
-                
-                // Animate message
-                const messageElement = document.getElementById('mainMessage');
-                messageElement.style.opacity = '0';
+            for (let i = 0; i < particleCount; i++) {
                 setTimeout(() => {
-                    messageElement.style.opacity = '1';
-                    messageElement.style.transition = 'opacity 0.5s';
-                }, 10);
-                
-                // Increase love counter
-                increaseLoveCounter(5);
-                
-                // Show notification
-                showMessage("Love sent successfully! 💘", "Love Delivery ✨");
-            });
-            
-            // Secret Message button
-            document.getElementById('secretMessage').addEventListener('click', function() {
-                const secretMessages = [
-                    {
-                        title: "To My Beautiful Girlfriend 💐",
-                        text: "You are the sunshine that brightens my darkest days, the calm in my storm, and the love that fills my heart. Every time I think of you, I can't help but smile. You're my everything."
-                    },
-                    {
-                        title: "My Dearest Love 🌹",
-                        text: "No matter how many pandas there are in the world, there will never be another you. You're one of a kind, perfect in every way, and I'm so grateful you're mine."
-                    },
-                    {
-                        title: "For My Panda Princess 🎀",
-                        text: "Just like a panda is rare and special, so are you. You bring peace to my soul, joy to my heart, and meaning to my life. I cherish every moment with you."
-                    },
-                    {
-                        title: "My Heart's Desire 💖",
-                        text: "If love were a panda, it would be you - soft, gentle, precious, and absolutely adorable. I fall in love with you more each day."
-                    },
-                    {
-                        title: "Forever Yours 🌟",
-                        text: "In a world full of ordinary, you are extraordinary. In a life full of moments, you are my forever. I love you more than you'll ever know."
-                    }
-                ];
-                
-                const randomIndex = Math.floor(Math.random() * secretMessages.length);
-                const message = secretMessages[randomIndex];
-                
-                document.getElementById('messageTitle').textContent = message.title;
-                document.getElementById('messageText').textContent = message.text;
-                
-                // Show message box
-                const messageBox = document.getElementById('messageBox');
-                messageBox.classList.add('show');
-                
-                // Hide message after 10 seconds
-                setTimeout(() => {
-                    messageBox.classList.remove('show');
-                }, 10000);
-                
-                // Increase love counter
-                increaseLoveCounter(3);
-            });
-        }
-        
-        // Create hearts around a position
-        function createHeartsAround(count, rect) {
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            
-            for (let i = 0; i < count; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.innerHTML = '💖';
-                    heart.style.position = 'fixed';
-                    heart.style.fontSize = Math.random() * 20 + 20 + 'px';
-                    heart.style.left = centerX + 'px';
-                    heart.style.top = centerY + 'px';
-                    heart.style.zIndex = '1000';
-                    heart.style.pointerEvents = 'none';
-                    heart.style.opacity = '1';
-                    heart.style.transform = 'translate(-50%, -50%) scale(0)';
+                    const particle = document.createElement('div');
+                    particle.className = 'love-particle';
+                    particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.color = `hsl(${Math.random() * 60 + 300}, 100%, 70%)`;
+                    particle.style.fontSize = Math.random() * 20 + 15 + 'px';
                     
-                    document.body.appendChild(heart);
-                    
-                    // Animate heart
+                    // Random direction
                     const angle = Math.random() * Math.PI * 2;
                     const distance = Math.random() * 100 + 50;
-                    const targetX = centerX + Math.cos(angle) * distance;
-                    const targetY = centerY + Math.sin(angle) * distance;
+                    particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                    particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
                     
-                    heart.animate([
-                        { transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
-                        { transform: 'translate(-50%, -50%) scale(1)', opacity: 1, offset: 0.1 },
-                        { transform: `translate(${targetX - centerX}px, ${targetY - centerY}px) scale(0.5)`, opacity: 0 }
-                    ], {
-                        duration: 1500,
-                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
-                    });
+                    effects.appendChild(particle);
                     
-                    // Remove heart after animation
+                    // Remove particle after animation
                     setTimeout(() => {
-                        if (heart.parentNode) {
-                            heart.parentNode.removeChild(heart);
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
                         }
-                    }, 1500);
+                    }, 3000);
                 }, i * 50);
             }
         }
         
-        // Create love explosion
-        function createLoveExplosion() {
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            const heartTypes = ['💖', '💕', '💗', '💓', '💞', '💘'];
+        // Heart trail on mouse movement
+        function initMouseTrail() {
+            let lastX = 0;
+            let lastY = 0;
+            let trailDelay = 0;
             
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.innerHTML = heartTypes[Math.floor(Math.random() * heartTypes.length)];
-                    heart.style.position = 'fixed';
-                    heart.style.fontSize = Math.random() * 25 + 25 + 'px';
-                    heart.style.left = centerX + 'px';
-                    heart.style.top = centerY + 'px';
-                    heart.style.zIndex = '1000';
-                    heart.style.pointerEvents = 'none';
-                    heart.style.opacity = '1';
-                    heart.style.transform = 'translate(-50%, -50%) scale(0)';
-                    
-                    document.body.appendChild(heart);
-                    
-                    // Animate heart in random direction
-                    const angle = Math.random() * Math.PI * 2;
-                    const distance = Math.random() * 200 + 100;
-                    const targetX = centerX + Math.cos(angle) * distance;
-                    const targetY = centerY + Math.sin(angle) * distance;
-                    
-                    heart.animate([
-                        { transform: 'translate(-50%, -50%) scale(0)', opacity: 1 },
-                        { transform: 'translate(-50%, -50%) scale(1.5)', opacity: 1, offset: 0.2 },
-                        { transform: `translate(${targetX - centerX}px, ${targetY - centerY}px) scale(0)`, opacity: 0 }
-                    ], {
-                        duration: 2000,
-                        easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
-                    });
-                    
-                    // Remove heart after animation
-                    setTimeout(() => {
-                        if (heart.parentNode) {
-                            heart.parentNode.removeChild(heart);
-                        }
-                    }, 2000);
-                }, i * 30);
-            }
+            document.addEventListener('mousemove', function(e) {
+                const now = Date.now();
+                if (now - trailDelay < 50) return;
+                trailDelay = now;
+                
+                // Only create trail if mouse moved significantly
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance > 20) {
+                    createHeartTrail(e.clientX, e.clientY);
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                }
+            });
         }
         
-        // Show message notification
-        function showMessage(text, title) {
-            // Create notification
-            const notification = document.createElement('div');
-            notification.innerHTML = `
-                <div style="position:fixed; top:20px; right:20px; background:white; padding:20px; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:2000; max-width:300px; border-left:8px solid #ff6b8b;">
-                    <h3 style="margin-bottom:10px; color:#2d3047;">${title}</h3>
-                    <p style="color:#555;">${text}</p>
-                </div>
-            `;
+        function createHeartTrail(x, y) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-trail';
+            heart.textContent = '💖';
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            heart.style.fontSize = Math.random() * 15 + 10 + 'px';
             
-            document.body.appendChild(notification);
+            document.body.appendChild(heart);
             
-            // Remove after 3 seconds
+            // Remove heart after animation
             setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
                 }
+            }, 1000);
+        }
+        
+        // Show private messages
+        function showPrivateMessage(text) {
+            const messageBox = document.getElementById('privateMessage');
+            messageBox.textContent = text;
+            messageBox.style.display = 'block';
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                messageBox.style.display = 'none';
             }, 3000);
         }
         
-        // Love counter functionality
-        let loveCount = 0;
-        
-        function startLoveCounter() {
-            // Load saved count from localStorage
-            const savedCount = localStorage.getItem('pandaLoveCount');
-            if (savedCount) {
-                loveCount = parseInt(savedCount);
-                updateLoveCounter();
-            }
-            
-            // Auto-increment every minute (because love keeps growing!)
-            setInterval(() => {
-                increaseLoveCounter(1);
-            }, 60000);
-        }
-        
-        function increaseLoveCounter(amount = 1) {
-            loveCount += amount;
-            updateLoveCounter();
-            localStorage.setItem('pandaLoveCount', loveCount);
-            
-            // Animate counter
-            const counter = document.getElementById('loveCount');
-            counter.style.transform = 'scale(1.5)';
-            setTimeout(() => {
-                counter.style.transform = 'scale(1)';
-                counter.style.transition = 'transform 0.3s';
-            }, 300);
-        }
-        
-        function updateLoveCounter() {
-            document.getElementById('loveCount').textContent = loveCount;
-        }
-        
-        // Panda sound effect
-        function playPandaSound() {
-            // Create a cute panda-like sound using Web Audio API
+        // Ambient nature sounds
+        function startAmbientSounds() {
+            // Create subtle wind and bamboo sounds using Web Audio API
             try {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
                 
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
+                // Wind sound
+                const windGain = audioContext.createGain();
+                windGain.gain.value = 0.05;
+                windGain.connect(audioContext.destination);
                 
-                // Cute panda-like frequency pattern
-                oscillator.frequency.setValueAtTime(300, audioContext.currentTime);
-                oscillator.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.2);
-                oscillator.frequency.exponentialRampToValueAtTime(150, audioContext.currentTime + 0.4);
+                function createWindOscillator() {
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+                    
+                    oscillator.connect(gainNode);
+                    gainNode.connect(windGain);
+                    
+                    oscillator.frequency.value = 100 + Math.random() * 50;
+                    oscillator.type = 'sine';
+                    
+                    gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 3 + Math.random() * 2);
+                    
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 3 + Math.random() * 2);
+                    
+                    // Create next wind sound
+                    setTimeout(createWindOscillator, 2000 + Math.random() * 3000);
+                }
                 
-                oscillator.type = 'sine';
+                // Start wind sounds
+                createWindOscillator();
                 
-                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-                
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.5);
             } catch (e) {
-                // Audio not supported
-                console.log("Love sound played in heart 💖");
+                // Audio not supported - silent mode
             }
         }
         
-        // Add some random panda facts in console
-        console.log("%c🐼 Panda Love Console 🐼", "color: #ff6b8b; font-size: 20px; font-weight: bold;");
-        console.log("%cDid you know? Pandas spend 10-16 hours a day eating bamboo!", "color: #4ecdc4;");
-        console.log("%cJust like how I spend all my time thinking about you! 💖", "color: #ff6b8b;");
-        
-        // Easter egg: Press 'L' for extra love
+        // Keyboard shortcuts for special interactions
         document.addEventListener('keydown', function(e) {
-            if (e.key.toLowerCase() === 'l') {
-                createLoveExplosion();
-                increaseLoveCounter(10);
-                showMessage("Extra love activated! You're amazing! 💖", "Love Boost! ✨");
+            if (e.key === ' ') {
+                // Space bar - create star shower
+                createStarShower();
+            } else if (e.key === 'p' || e.key === 'P') {
+                // P key - panda party
+                createPandaParty();
             }
         });
+        
+        function createStarShower() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createLoveParticles(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight
+                    );
+                }, i * 100);
+            }
+            showPrivateMessage("A shower of stars just for you! ✨");
+        }
+        
+        function createPandaParty() {
+            const panda = document.getElementById('mainPanda');
+            const pandaBody = panda.querySelector('.panda-body');
+            
+            // Colorful disco lights
+            const colors = ['#ff6b8b', '#ffd166', '#4ecdc4', '#9d4edd', '#ff9e00'];
+            let colorIndex = 0;
+            
+            const discoInterval = setInterval(() => {
+                document.body.style.background = colors[colorIndex];
+                colorIndex = (colorIndex + 1) % colors.length;
+            }, 300);
+            
+            // Panda dances
+            pandaBody.style.animation = 'none';
+            let angle = 0;
+            const danceInterval = setInterval(() => {
+                pandaBody.style.transform = `rotate(${angle}deg) scale(1.1)`;
+                angle = (angle + 10) % 360;
+            }, 100);
+            
+            // Stop after 5 seconds
+            setTimeout(() => {
+                clearInterval(discoInterval);
+                clearInterval(danceInterval);
+                pandaBody.style.transform = 'rotate(0deg) scale(1)';
+                pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
+                document.body.style.background = 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)';
+                showPrivateMessage("What a fun party! 🎉🐼");
+            }, 5000);
+        }
+        
+        // Auto-interaction every minute to keep it alive
+        setInterval(() => {
+            const panda = document.getElementById('mainPanda');
+            const rect = panda.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            createLoveParticles(x, y);
+            
+            // Random panda action
+            const actions = [() => {}, () => pandaWaves(), () => showPrivateMessage("I'm always thinking of you 💕")];
+            actions[Math.floor(Math.random() * actions.length)]();
+        }, 60000);
     </script>
 </body>
 </html>
