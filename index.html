@@ -1036,3 +1036,27 @@
                 moon.style.width = originalSize;
                 moon.style.height = originalSize;
                 moon.style.boxShadow = '0 0 60px rgba(255, 255, 255, 0.5)';
+                moon.style.animation = 'moonFloat 15s infinite ease-in-out';
+            }, 3000);
+        }
+        
+        // Auto-interaction every minute to keep it alive
+        setInterval(() => {
+            const panda = document.getElementById('mainPanda');
+            const rect = panda.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            createSnowParticles(x, y);
+            
+            // Random panda action
+            const actions = [
+                () => {}, 
+                () => showPrivateMessage("Thinking of you always ❤️"), 
+                () => pandaWaves()
+            ];
+            actions[Math.floor(Math.random() * actions.length)]();
+        }, 60000);
+    </script>
+</body>
+</html>
