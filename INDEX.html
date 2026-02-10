@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Day Surprise for My Love</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%);
+            min-height: 100vh;
+            color: #8b4513;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(139, 69, 19, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content h1 {
+            font-size: 2.8rem;
+            color: #d2691e;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 0 #ffdab9;
+        }
+        
+        .header-content p {
+            font-size: 1.3rem;
+            color: #a0522d;
+            margin-bottom: 20px;
+        }
+        
+        .hearts {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: #ff6b6b;
+        }
+        
+        .teddy-icon {
+            font-size: 3rem;
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+        
+        .games-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .game-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 15px rgba(139, 69, 19, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(139, 69, 19, 0.2);
+        }
+        
+        .game-card i {
+            font-size: 3rem;
+            color: #d2691e;
+            margin-bottom: 15px;
+        }
+        
+        .game-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #8b4513;
+        }
+        
+        .game-card p {
+            font-size: 1rem;
+            color: #a0522d;
+            margin-bottom: 20px;
+        }
+        
+        .play-btn {
+            background-color: #ffb6c1;
+            color: #8b4513;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .play-btn:hover {
+            background-color: #ff9eb5;
+            transform: scale(1.05);
+        }
+        
+        .game-area {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 20px rgba(139, 69, 19, 0.1);
+            display: none;
+        }
+        
+        .game-area.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .back-btn {
+            background-color: #ffe4e1;
+            color: #8b4513;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background-color: #ffd1dc;
+        }
+        
+        .game-content {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .message-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(139, 69, 19, 0.1);
+        }
+        
+        .message-section h2 {
+            font-size: 2rem;
+            color: #d2691e;
+            margin-bottom: 20px;
+        }
+        
+        .message-box {
+            background-color: #fffaf0;
+            border: 3px dashed #d2691e;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .personal-message {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #8b4513;
+            font-style: italic;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #d2691e;
+            font-size: 1.2rem;
+        }
+        
+        .hidden-teddy {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: #8b4513;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+            z-index: 100;
+            transition: transform 0.3s;
+        }
+        
+        .hidden-teddy:hover {
+            transform: scale(1.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #a0522d;
+            font-size: 0.9rem;
+        }
+        
+        /* Game-specific styles */
+        #memory-game .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .memory-card {
+            height: 100px;
+            background-color: #ffdab9;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+        
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+            background-color: #f5deb3;
+        }
+        
+        .memory-card.matched {
+            background-color: #98fb98;
+            cursor: default;
+        }
+        
+        #teddy-jump .teddy-character {
+            width: 60px;
+            height: 80px;
+            background-color: #8b4513;
+            border-radius: 50% 50% 40% 40%;
+            position: relative;
+            margin: 0 auto 30px;
+        }
+        
+        .jump-area {
+            width: 100%;
+            height: 200px;
+            background-color: #ffdab9;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .obstacle {
+            width: 30px;
+            height: 50px;
+            background-color: #a0522d;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        
+        #love-calculator .calculator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .input-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .input-group input {
+            padding: 12px;
+            border-radius: 10px;
+            border: 2px solid #d2691e;
+            font-size: 1.1rem;
+            width: 200px;
+        }
+        
+        .result {
+            font-size: 4rem;
+            color: #ff6b6b;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            width: 80%;
+            height: 30px;
+            background-color: #ffe4e1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ffb6c1, #ff6b6b);
+            width: 0%;
+            transition: width 1.5s;
+        }
+        
+        #teddy-quiz .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .question {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: #8b4513;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .option {
+            padding: 15px;
+            background-color: #ffdab9;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .option:hover {
+            background-color: #f5deb3;
+        }
+        
+        .option.selected {
+            background-color: #ffb6c1;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .games-section {
+                grid-template-columns: 1fr;
+            }
+            
+            #memory-game .game-board {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="teddy-icon">🧸</div>
+                <h1>Happy Teddy Day, My Love! 🧸</h1>
+                <p>A special day for my special person with teddy bear games!</p>
+                <div class="hearts">
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </header>
+        
+        <section class="games-section">
+            <div class="game-card" data-game="memory-game">
+                <i class="fas fa-brain"></i>
+                <h3>Teddy Memory Match</h3>
+                <p>Find matching teddy pairs in this memory game. Test how well you remember!</p>
+                <button class="play-btn">Play Game</button>
+            </div>
+            
+            <div class="game-card" data-game="teddy-jump">
+                <i class="fas fa-running"></i>
+                <h3>Teddy Jump Adventure</h3>
+                <p>Help the teddy jump over obstacles. How far can you go?</p>
+                <button class="play-btn">Play Game</button>
+            </div>
+            
+            <div class="game-card" data-game="love-calculator">
+                <i class="fas fa-heart"></i>
+                <h3>Love Calculator</h3>
+                <p>Calculate our love percentage. I already know it's 100%!</p>
+                <button class="play-btn">Play Game</button>
+            </div>
+            
+            <div class="game-card" data-game="teddy-quiz">
+                <i class="fas fa-question-circle"></i>
+                <h3>How Well Do You Know Me?</h3>
+                <p>A fun quiz about us and our memories together!</p>
+                <button class="play-btn">Play Game</button>
+            </div>
+        </section>
+        
+        <!-- Memory Game -->
+        <div id="memory-game" class="game-area">
+            <div class="game-header">
+                <h2>Teddy Memory Match</h2>
+                <button class="back-btn">Back to Games</button>
+            </div>
+            <div class="game-content">
+                <p>Find all the matching teddy pairs! You have <span id="moves">0</span> moves.</p>
+                <div class="game-board" id="memory-board"></div>
+                <p id="memory-result"></p>
+            </div>
+        </div>
+        
+        <!-- Teddy Jump Game -->
+        <div id="teddy-jump" class="game-area">
+            <div class="game-header">
+                <h2>Teddy Jump Adventure</h2>
+                <button class="back-btn">Back to Games</button>
+            </div>
+            <div class="game-content">
+                <div class="teddy-character"></div>
+                <p>Press SPACE or click to make the teddy jump over obstacles!</p>
+                <div class="jump-area" id="jump-area">
+                    <div class="obstacle" id="obstacle"></div>
+                </div>
+                <p>Score: <span id="score">0</span></p>
+                <button id="jump-btn" class="play-btn">Jump!</button>
+            </div>
+        </div>
+        
+        <!-- Love Calculator -->
+        <div id="love-calculator" class="game-area">
+            <div class="game-header">
+                <h2>Love Calculator</h2>
+                <button class="back-btn">Back to Games</button>
+            </div>
+            <div class="game-content">
+                <div class="calculator">
+                    <div class="input-group">
+                        <input type="text" id="name1" placeholder="Your Name" value="You">
+                        <i class="fas fa-heart" style="color:#ff6b6b; font-size:1.5rem;"></i>
+                        <input type="text" id="name2" placeholder="My Name" value="Me">
+                    </div>
+                    <button id="calculate-love" class="play-btn">Calculate Our Love</button>
+                    <div class="result" id="love-result">?</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="love-progress"></div>
+                    </div>
+                    <p id="love-message">Our love is immeasurable! ❤️</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Teddy Quiz -->
+        <div id="teddy-quiz" class="game-area">
+            <div class="game-header">
+                <h2>How Well Do You Know Me?</h2>
+                <button class="back-btn">Back to Games</button>
+            </div>
+            <div class="game-content">
+                <div class="quiz-container">
+                    <div class="question" id="question">Question will appear here</div>
+                    <div class="options" id="options"></div>
+                    <button id="next-question" class="play-btn">Next Question</button>
+                    <p id="quiz-score">Score: 0/0</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Personal Message Section -->
+        <section class="message-section">
+            <h2>A Special Message for You 💌</h2>
+            <div class="message-box">
+                <div class="personal-message" id="personal-message">
+                    My dearest love, on this Teddy Day, I want you to know that you mean the world to me. Just like a teddy bear brings comfort and joy, you bring endless happiness and warmth to my life. No matter what challenges we face, I'll always be there to hold your hand, just like a teddy bear that never lets go.
+                </div>
+                <div class="signature">With all my love, forever and always 💖</div>
+            </div>
+            <button id="change-message" class="play-btn">Surprise Me with Another Message</button>
+        </section>
+        
+        <!-- Hidden Teddy Surprise -->
+        <div class="hidden-teddy" id="hidden-teddy">
+            🧸
+        </div>
+        
+        <footer>
+            <p>Made with ❤️ for the most amazing person in my life | Happy Teddy Day! 🧸</p>
+        </footer>
+    </div>
+
+    <script>
+        // Game selection functionality
+        const gameCards = document.querySelectorAll('.game-card');
+        const gameAreas = document.querySelectorAll('.game-area');
+        const backButtons = document.querySelectorAll('.back-btn');
+        
+        gameCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const gameId = card.getAttribute('data-game');
+                document.getElementById(gameId).classList.add('active');
+                document.querySelector('.games-section').style.display = 'none';
+                document.querySelector('.message-section').style.display = 'none';
+                
+                // Initialize the selected game
+                if (gameId === 'memory-game') initMemoryGame();
+                if (gameId === 'teddy-jump') initJumpGame();
+                if (gameId === 'teddy-quiz') initQuiz();
+            });
+        });
+        
+        backButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                gameAreas.forEach(area => area.classList.remove('active'));
+                document.querySelector('.games-section').style.display = 'grid';
+                document.querySelector('.message-section').style.display = 'block';
+            });
+        });
+        
+        // Memory Game
+        function initMemoryGame() {
+            const memoryBoard = document.getElementById('memory-board');
+            const movesElement = document.getElementById('moves');
+            const resultElement = document.getElementById('memory-result');
+            
+            // Teddy-themed emojis for the memory game
+            const emojis = ['🧸', '🍫', '💖', '🎀', '🎁', '🌸', '🍭', '🎈'];
+            const cards = [...emojis, ...emojis]; // Duplicate for matching pairs
+            
+            // Shuffle cards
+            cards.sort(() => Math.random() - 0.5);
+            
+            // Clear the board
+            memoryBoard.innerHTML = '';
+            let flippedCards = [];
+            let matchedCards = [];
+            let moves = 0;
+            movesElement.textContent = moves;
+            resultElement.textContent = '';
+            
+            // Create cards
+            cards.forEach((emoji, index) => {
+                const card = document.createElement('div');
+                card.classList.add('memory-card');
+                card.dataset.index = index;
+                card.dataset.value = emoji;
+                
+                card.innerHTML = `<span style="opacity:0">${emoji}</span>`;
+                
+                card.addEventListener('click', () => {
+                    if (flippedCards.length < 2 && !card.classList.contains('flipped') && !card.classList.contains('matched')) {
+                        card.classList.add('flipped');
+                        card.innerHTML = `<span>${emoji}</span>`;
+                        flippedCards.push(card);
+                        
+                        if (flippedCards.length === 2) {
+                            moves++;
+                            movesElement.textContent = moves;
+                            
+                            // Check for match
+                            if (flippedCards[0].dataset.value === flippedCards[1].dataset.value) {
+                                flippedCards.forEach(c => c.classList.add('matched'));
+                                matchedCards.push(...flippedCards);
+                                
+                                if (matchedCards.length === cards.length) {
+                                    resultElement.innerHTML = `🎉 Congratulations! You found all matches in ${moves} moves! 🎉`;
+                                }
+                            } else {
+                                setTimeout(() => {
+                                    flippedCards.forEach(c => {
+                                        c.classList.remove('flipped');
+                                        c.innerHTML = `<span style="opacity:0">${c.dataset.value}</span>`;
+                                    });
+                                }, 1000);
+                            }
+                            
+                            flippedCards = [];
+                        }
+                    }
+                });
+                
+                memoryBoard.appendChild(card);
+            });
+        }
+        
+        // Teddy Jump Game
+        function initJumpGame() {
+            const teddy = document.querySelector('.teddy-character');
+            const obstacle = document.getElementById('obstacle');
+            const scoreElement = document.getElementById('score');
+            const jumpBtn = document.getElementById('jump-btn');
+            const jumpArea = document.getElementById('jump-area');
+            
+            let score = 0;
+            let isJumping = false;
+            let gameInterval;
+            
+            scoreElement.textContent = score;
+            obstacle.style.left = '100%';
+            
+            function jump() {
+                if (!isJumping) {
+                    isJumping = true;
+                    teddy.style.transform = 'translateY(-100px)';
+                    
+                    setTimeout(() => {
+                        teddy.style.transform = 'translateY(0)';
+                        isJumping = false;
+                    }, 500);
+                }
+            }
+            
+            function startGame() {
+                let obstaclePosition = 100;
+                let gameSpeed = 5;
+                
+                gameInterval = setInterval(() => {
+                    // Move obstacle
+                    obstaclePosition -= gameSpeed;
+                    obstacle.style.left = obstaclePosition + '%';
+                    
+                    // Reset obstacle when it goes off screen
+                    if (obstaclePosition < -10) {
+                        obstaclePosition = 100;
+                        score++;
+                        scoreElement.textContent = score;
+                        
+                        // Increase speed every 5 points
+                        if (score % 5 === 0) {
+                            gameSpeed += 1;
+                        }
+                    }
+                    
+                    // Check for collision
+                    const teddyBottom = 200 - 80; // area height - teddy height
+                    const obstacleLeft = parseFloat(obstacle.style.left);
+                    
+                    if (obstacleLeft < 20 && obstacleLeft > 0 && !isJumping) {
+                        // Collision detected
+                        clearInterval(gameInterval);
+                        alert(`Game Over! Your score: ${score}. Press OK to play again.`);
+                        initJumpGame();
+                    }
+                }, 50);
+            }
+            
+            // Jump on button click
+            jumpBtn.addEventListener('click', jump);
+            
+            // Jump on spacebar
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' && document.getElementById('teddy-jump').classList.contains('active')) {
+                    jump();
+                }
+            });
+            
+            // Start the game
+            setTimeout(startGame, 1000);
+        }
+        
+        // Love Calculator
+        document.getElementById('calculate-love').addEventListener('click', function() {
+            const name1 = document.getElementById('name1').value || "You";
+            const name2 = document.getElementById('name2').value || "Me";
+            const loveResult = document.getElementById('love-result');
+            const loveProgress = document.getElementById('love-progress');
+            const loveMessage = document.getElementById('love-message');
+            
+            // Always show 100% for our love
+            let percentage = 100;
+            
+            // But for fun, randomize if names are changed
+            if (name1.toLowerCase() !== "you" || name2.toLowerCase() !== "me") {
+                // Generate a "random" but high percentage
+                percentage = Math.floor(Math.random() * 30) + 70;
+                
+                if (name1.toLowerCase() === name2.toLowerCase()) {
+                    percentage = 99; // Almost perfect if same name
+                }
+            }
+            
+            loveResult.textContent = `${percentage}%`;
+            loveProgress.style.width = `${percentage}%`;
+            
+            // Different messages based on percentage
+            if (percentage === 100) {
+                loveMessage.textContent = "Our love is perfect and eternal! 💖🧸";
+            } else if (percentage >= 90) {
+                loveMessage.textContent = "Amazing! We're almost perfect together! 💕";
+            } else if (percentage >= 80) {
+                loveMessage.textContent = "Great match! We have something special! 💞";
+            } else {
+                loveMessage.textContent = "A beautiful connection! Love grows every day! 🌸";
+            }
+        });
+        
+        // Teddy Quiz
+        function initQuiz() {
+            const questions = [
+                {
+                    question: "What's my favorite thing about you?",
+                    options: ["Your smile", "Your kindness", "Your intelligence", "Everything about you"],
+                    correct: 3
+                },
+                {
+                    question: "What would be our perfect date?",
+                    options: ["Movie night at home", "A walk in the park", "Dinner at a fancy restaurant", "Anywhere with you"],
+                    correct: 3
+                },
+                {
+                    question: "What do I compare you to?",
+                    options: ["A teddy bear", "A shining star", "A beautiful flower", "All of the above"],
+                    correct: 3
+                },
+                {
+                    question: "How do you make me feel?",
+                    options: ["Happy", "Loved", "Special", "All of the above and more"],
+                    correct: 3
+                }
+            ];
+            
+            let currentQuestion = 0;
+            let score = 0;
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+            const nextButton = document.getElementById('next-question');
+            const scoreElement = document.getElementById('quiz-score');
+            
+            function loadQuestion() {
+                const q = questions[currentQuestion];
+                questionElement.textContent = q.question;
+                optionsElement.innerHTML = '';
+                
+                q.options.forEach((option, index) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.classList.add('option');
+                    optionElement.textContent = option;
+                    optionElement.dataset.index = index;
+                    
+                    optionElement.addEventListener('click', function() {
+                        document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                    });
+                    
+                    optionsElement.appendChild(optionElement);
+                });
+                
+                nextButton.textContent = currentQuestion === questions.length - 1 ? "See Results" : "Next Question";
+                scoreElement.textContent = `Score: ${score}/${currentQuestion}`;
+            }
+            
+            nextButton.addEventListener('click', function() {
+                const selectedOption = document.querySelector('.option.selected');
+                
+                if (!selectedOption) {
+                    alert("Please select an answer!");
+                    return;
+                }
+                
+                const selectedIndex = parseInt(selectedOption.dataset.index);
+                const correctIndex = questions[currentQuestion].correct;
+                
+                if (selectedIndex === correctIndex) {
+                    score++;
+                }
+                
+                currentQuestion++;
+                
+                if (currentQuestion < questions.length) {
+                    loadQuestion();
+                } else {
+                    // Show results
+                    questionElement.textContent = "Quiz Complete!";
+                    optionsElement.innerHTML = '';
+                    nextButton.style.display = 'none';
+                    
+                    let message = '';
+                    if (score === questions.length) {
+                        message = "Perfect! You know me so well! You're my soulmate! 💖";
+                    } else if (score >= questions.length / 2) {
+                        message = "Great job! You know me pretty well! 😊";
+                    } else {
+                        message = "We have more memories to create together! Let's make more! 🌸";
+                    }
+                    
+                    scoreElement.innerHTML = `Your score: ${score}/${questions.length}<br>${message}`;
+                    scoreElement.style.fontSize = "1.5rem";
+                }
+            });
+            
+            loadQuestion();
+        }
+        
+        // Personal Message Changer
+        const messages = [
+            "Every moment with you feels like cuddling the softest teddy bear in the world. You bring me comfort, joy, and endless love. I'm so grateful to have you in my life.",
+            "Like a teddy bear that's always there, I promise to always be by your side through thick and thin. You're my safe place and my greatest adventure.",
+            "On this Teddy Day, I want to remind you that you're the most precious gift in my life. Your love is the warmth that fills my heart every single day.",
+            "If love were a teddy bear, ours would be the biggest, softest, and most huggable one ever. Thank you for being my perfect match in every way."
+        ];
+        
+        document.getElementById('change-message').addEventListener('click', function() {
+            const messageElement = document.getElementById('personal-message');
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            messageElement.textContent = messages[randomIndex];
+            
+            // Add a little animation
+            messageElement.style.opacity = '0';
+            setTimeout(() => {
+                messageElement.style.opacity = '1';
+                messageElement.style.transition = 'opacity 0.5s';
+            }, 10);
+        });
+        
+        // Hidden Teddy Surprise
+        document.getElementById('hidden-teddy').addEventListener('click', function() {
+            const teddy = this;
+            teddy.style.transform = 'scale(1.5)';
+            teddy.innerHTML = '💖';
+            
+            // Create floating hearts
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    createFloatingHeart();
+                }, i * 100);
+            }
+            
+            setTimeout(() => {
+                teddy.style.transform = 'scale(1)';
+                teddy.innerHTML = '🧸';
+            }, 2000);
+        });
+        
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            heart.style.zIndex = '1000';
+            heart.style.pointerEvents = 'none';
+            heart.style.opacity = '0.9';
+            
+            document.body.appendChild(heart);
+            
+            // Animate the heart
+            const animation = heart.animate([
+                { transform: 'translateY(0)', opacity: 1 },
+                { transform: `translateY(-${window.innerHeight}px)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 2000 + 2000,
+                easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+            });
+            
+            animation.onfinish = () => {
+                heart.remove();
+            };
+        }
+    </script>
+</body>
+</html>
