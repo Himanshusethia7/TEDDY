@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Happy Teddy Day, DIVSSS ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Panda Day ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,6 +16,7 @@
 
     body {
       margin: 0;
+      min-height: 100vh;
       background: linear-gradient(135deg, #ffe6f0, #fff);
       color: #333;
       text-align: center;
@@ -23,85 +24,114 @@
     }
 
     .container {
-      padding: 50px 20px;
-      max-width: 700px;
+      padding: 60px 20px;
+      max-width: 720px;
       margin: auto;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       color: #ff5c8a;
+      margin-bottom: 10px;
     }
 
     h2 {
       color: #444;
-      margin-top: 40px;
+      margin-bottom: 15px;
     }
 
     p {
       font-size: 1.05rem;
-      line-height: 1.8;
+      line-height: 1.9;
     }
 
+    /* Panda */
     .panda {
-      font-size: 100px;
-      animation: float 3s ease-in-out infinite;
-      margin: 20px 0;
+      font-size: 110px;
+      margin: 25px 0;
+      animation: float 3.5s ease-in-out infinite;
     }
 
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+      50% { transform: translateY(-18px); }
       100% { transform: translateY(0); }
     }
 
+    /* Button */
     .btn {
-      display: inline-block;
       margin-top: 30px;
-      padding: 12px 30px;
+      padding: 14px 36px;
       background: #ff5c8a;
-      color: white;
+      color: #fff;
       border: none;
-      cursor: pointer;
-      text-decoration: none;
-      border-radius: 30px;
+      border-radius: 999px;
       font-size: 1rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      transition: all 0.25s ease;
     }
 
     .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(255,92,138,0.3);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 12px 25px rgba(255,92,138,0.35);
     }
 
+    /* Cards */
     .card {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      margin-top: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      background: #fff;
+      border-radius: 24px;
+      padding: 35px;
+      margin-top: 45px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+    /* Hug Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .hug-box {
+      background: #fff;
+      padding: 35px;
+      border-radius: 26px;
+      max-width: 320px;
+      animation: pop 0.35s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .hug-box .panda {
+      font-size: 70px;
+      animation: none;
     }
 
     footer {
-      margin: 50px 0 20px;
+      margin: 60px 0 20px;
       font-size: 0.9rem;
       color: #888;
     }
 
-    /* Hug Popup */
-    #hugBox {
-      display: none;
+    /* Floating hearts */
+    .heart {
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-      z-index: 999;
-      text-align: center;
-      max-width: 300px;
+      bottom: -20px;
+      font-size: 20px;
+      animation: rise 5s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
     }
   </style>
 </head>
@@ -118,7 +148,6 @@
       but it carries all my hugs just for you.
     </p>
 
-    <!-- Hug Button -->
     <button class="btn" onclick="pandaHug()">Tap for a Panda Hug 🤍</button>
 
     <div id="message" class="card">
@@ -129,22 +158,19 @@
         Clumsy in the cutest way—bumping into things, messing up a little,
         and still somehow looking adorable every single time.<br><br>
 
-        Lazy like a panda too—loving naps, slow moments, and doing absolutely nothing,
+        Lazy like a panda—loving naps, slow moments, and doing absolutely nothing,
         yet making those moments feel warm and peaceful.<br><br>
 
-        You’re a total foodie, just like a panda—always thinking about food,
-        getting excited over snacks, and stealing bites like it’s your special talent 😌<br><br>
+        A total foodie—always thinking about food, getting excited over snacks,
+        and stealing bites like it’s your superpower 😌<br><br>
 
-        And those pretty eyes… soft, expressive, and magical—the kind that can stop my heart
-        with just one look, just like a panda’s eyes do 🐼✨<br><br>
+        And those pretty eyes… soft, expressive, and magical—
+        the kind that can stop my heart with just one look 🐼✨<br><br>
 
         You may be clumsy, lazy, and obsessed with food,
         but to me, you’re comfort, cuteness, and happiness all wrapped into one.<br><br>
 
-        If I had to choose between a panda and you…<br>
-        I’d choose you—every time, without a second thought 🤍<br><br>
-
-        Because my favorite panda in this world…<br>
+        My favorite panda in this world…<br>
         is you 🐼💖
       </p>
     </div>
@@ -153,12 +179,9 @@
       <h2>A Little Note for You 💌</h2>
       <p>
         Dear <strong>DIVYANSHI</strong>,<br><br>
-        On this Teddy Day, I just want you to know—<br>
-        you’re my comfort, my smile, my safe place.<br><br>
-
-        Whenever you miss me, imagine this panda hugging you tight<br>
-        and whispering: <em>“I’m always with you.”</em><br><br>
-
+        You’re my comfort, my smile, my safe place.<br><br>
+        Whenever you miss me, imagine this panda hugging you tight
+        and whispering, <em>“I’m always with you.”</em><br><br>
         Love you endlessly 🐼💖<br>
         — <strong>HIMANSHU</strong>
       </p>
@@ -169,25 +192,43 @@
     </footer>
   </div>
 
-  <!-- Hug Popup -->
-  <div id="hugBox">
-    <div style="font-size:60px;">🐼🤍</div>
-    <p>
-      Panda hug delivered successfully 🫂<br>
-      This one’s warm, tight, and full of love 💖
-    </p>
-    <button class="btn" onclick="closeHug()">Aww 🥺</button>
+  <!-- Hug Overlay -->
+  <div class="overlay" id="overlay">
+    <div class="hug-box">
+      <div class="panda">🐼🤍</div>
+      <p>
+        Panda hug delivered 🫂<br>
+        Warm. Tight. Only for you 💖
+      </p>
+      <button class="btn" onclick="closeHug()">Aww 🥺</button>
+    </div>
   </div>
 
   <!-- JavaScript -->
   <script>
     function pandaHug() {
-      document.getElementById("hugBox").style.display = "block";
+      document.getElementById("overlay").style.display = "flex";
       document.getElementById("message").scrollIntoView({ behavior: "smooth" });
+      createHearts();
     }
 
     function closeHug() {
-      document.getElementById("hugBox").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 12; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = 4 + Math.random() * 2 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
     }
   </script>
 
