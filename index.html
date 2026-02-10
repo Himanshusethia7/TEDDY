@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Black & White Panda Paradise 🐼</title>
+    <title>My Cute Panda Wonderland 🐼💖</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,15 +13,15 @@
         }
         
         body {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #b3e0ff 0%, #e6f7ff 100%);
             min-height: 100vh;
             overflow: hidden;
             position: relative;
-            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
         }
         
-        /* Starry Night Sky */
-        .stars {
+        /* Animated Clouds */
+        .clouds {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -29,111 +29,128 @@
             z-index: 1;
         }
         
-        .star {
+        .cloud {
             position: absolute;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            animation: floatCloud 60s linear infinite;
+        }
+        
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
-            animation: twinkle 3s infinite;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-        
-        /* Moon */
-        .moon {
-            position: fixed;
-            top: 50px;
-            right: 50px;
+        .cloud.small {
             width: 100px;
-            height: 100px;
-            background: radial-gradient(circle at 30% 30%, #fff 0%, #f0f0f0 30%, #ccc 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 60px rgba(255, 255, 255, 0.5);
+            height: 40px;
+        }
+        
+        .cloud.medium {
+            width: 150px;
+            height: 60px;
+        }
+        
+        .cloud.large {
+            width: 200px;
+            height: 80px;
+        }
+        
+        @keyframes floatCloud {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+        
+        /* Floating Hearts Background */
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
             z-index: 2;
-            animation: moonFloat 15s infinite ease-in-out;
         }
         
-        .moon::before {
-            content: '';
+        .floating-heart {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 20px;
-            height: 20px;
-            background: rgba(0, 0, 0, 0.15);
-            border-radius: 50%;
+            font-size: 24px;
+            opacity: 0;
+            animation: floatHeart 20s linear infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 107, 139, 0.5));
         }
         
-        .moon::after {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 40px;
-            width: 15px;
-            height: 15px;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
         
-        @keyframes moonFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-        }
-        
-        /* Bamboo Forest */
-        .bamboo-forest {
+        /* Animated Bamboo Forest */
+        .bamboo-garden {
             position: fixed;
             bottom: 0;
             width: 100%;
-            height: 50vh;
+            height: 40vh;
             z-index: 3;
             display: flex;
             justify-content: space-around;
             align-items: flex-end;
         }
         
-        .bamboo-stalk {
-            width: 25px;
-            background: linear-gradient(to right, #333, #222, #333);
+        .bamboo-plant {
+            width: 30px;
             position: relative;
-            border-radius: 12px;
-            animation: bambooSway 8s infinite ease-in-out;
-            border-left: 2px solid #444;
-            border-right: 2px solid #111;
+            animation: bambooGrow 4s ease-out;
         }
         
-        .bamboo-stalk::before {
-            content: '';
-            position: absolute;
+        @keyframes bambooGrow {
+            from {
+                height: 0;
+                opacity: 0;
+            }
+            to {
+                height: var(--height);
+                opacity: 1;
+            }
+        }
+        
+        .bamboo-segment {
             width: 100%;
-            height: 20px;
-            background: #222;
-            top: -20px;
-            border-radius: 12px 12px 0 0;
+            background: linear-gradient(to right, #4CAF50, #2E7D32, #4CAF50);
+            border-radius: 15px;
+            margin-bottom: 5px;
+            border-left: 3px solid #81C784;
+            border-right: 2px solid #1B5E20;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         }
         
         .bamboo-leaf {
             position: absolute;
-            width: 40px;
-            height: 15px;
-            background: #444;
-            border-radius: 20px 0 20px 0;
+            width: 50px;
+            height: 25px;
+            background: linear-gradient(135deg, #81C784, #4CAF50);
+            border-radius: 50% 0 50% 0;
             transform-origin: left center;
-            animation: leafFlutter 3s infinite;
-            border: 1px solid #555;
+            animation: leafSway 3s infinite alternate;
+            z-index: 4;
+            filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
         }
         
-        @keyframes bambooSway {
-            0%, 100% { transform: translateX(0) rotate(0deg); }
-            33% { transform: translateX(-5px) rotate(-1deg); }
-            66% { transform: translateX(5px) rotate(1deg); }
-        }
-        
-        @keyframes leafFlutter {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
+        @keyframes leafSway {
+            0% { transform: rotate(-20deg) scale(1); }
+            100% { transform: rotate(20deg) scale(1.1); }
         }
         
         /* Main Container */
@@ -148,91 +165,196 @@
             padding: 20px;
         }
         
-        /* Secret Welcome */
-        .secret-welcome {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border-radius: 30px;
+        /* Welcome Message */
+        .welcome-message {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
             padding: 40px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             width: 90%;
             max-width: 600px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+            border: 8px solid #FFD1DC;
+            box-shadow: 
+                0 20px 40px rgba(255, 182, 193, 0.3),
+                inset 0 0 30px rgba(255, 182, 193, 0.2);
             text-align: center;
-            animation: fadeIn 2s;
+            animation: bounceIn 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        .welcome-message::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 182, 193, 0.1) 50%, 
+                transparent 70%);
+            animation: shine 4s infinite linear;
         }
         
-        .secret-title {
-            font-size: 3rem;
-            background: linear-gradient(45deg, #fff, #aaa, #fff);
+        @keyframes bounceIn {
+            0% { 
+                transform: scale(0.3); 
+                opacity: 0; 
+            }
+            50% { 
+                transform: scale(1.05); 
+            }
+            70% { 
+                transform: scale(0.9); 
+            }
+            100% { 
+                transform: scale(1); 
+                opacity: 1; 
+            }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(360deg); }
+        }
+        
+        .message-title {
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #FF6B8B, #FFD166, #4ECDC4);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             margin-bottom: 20px;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            text-shadow: 3px 3px 0 rgba(255, 182, 193, 0.2);
+            animation: colorShift 8s infinite alternate;
         }
         
-        .secret-message {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
+        @keyframes colorShift {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(20deg); }
+        }
+        
+        .message-text {
+            font-size: 1.4rem;
+            color: #666;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
-        /* Realistic Black & White Panda */
-        .panda-container {
+        .heart-beat {
+            font-size: 3rem;
+            display: inline-block;
+            animation: heartbeat 1.2s infinite;
+            margin: 0 5px;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.3); }
+            50% { transform: scale(1.1); }
+            75% { transform: scale(1.2); }
+        }
+        
+        /* Ultra Cute Animated Panda */
+        .panda-home {
             position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 50px auto;
+            width: 350px;
+            height: 350px;
+            margin: 30px auto;
             cursor: pointer;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+        }
+        
+        .panda-platform {
+            position: absolute;
+            width: 300px;
+            height: 60px;
+            background: linear-gradient(45deg, #A1887F, #8D6E63);
+            border-radius: 50%;
+            bottom: 0;
+            left: 25px;
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.3),
+                inset 0 5px 15px rgba(255, 255, 255, 0.2);
+            animation: platformFloat 6s infinite ease-in-out;
+        }
+        
+        @keyframes platformFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
         
         .panda-body {
             position: absolute;
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 220px;
             background: #000;
-            border-radius: 50%;
-            top: 25px;
-            left: 25px;
+            border-radius: 50% 50% 45% 45%;
+            bottom: 40px;
+            left: 75px;
             box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                inset 0 -20px 40px rgba(100, 100, 100, 0.1);
-            animation: pandaBreathe 4s infinite ease-in-out;
+                0 15px 30px rgba(0, 0, 0, 0.4),
+                inset 0 -20px 40px rgba(100, 100, 100, 0.2);
+            animation: pandaBounce 4s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55);
             overflow: hidden;
+            z-index: 2;
         }
         
-        @keyframes pandaBreathe {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+        @keyframes pandaBounce {
+            0%, 100% { 
+                transform: translateY(0) scale(1); 
+            }
+            20% { 
+                transform: translateY(-30px) scale(1.05, 0.95); 
+            }
+            40% { 
+                transform: translateY(0) scale(1); 
+            }
+            60% { 
+                transform: translateY(-15px) scale(1.02, 0.98); 
+            }
+            80% { 
+                transform: translateY(0) scale(1); 
+            }
         }
         
-        .panda-fur {
+        .panda-tummy {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 30%, 
-                rgba(150, 150, 150, 0.1) 0%,
-                transparent 50%);
+            width: 140px;
+            height: 150px;
+            background: white;
             border-radius: 50%;
+            bottom: 10px;
+            left: 30px;
+            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: tummyGlow 3s infinite alternate;
         }
         
-        .panda-white-fur {
+        @keyframes tummyGlow {
+            0% { box-shadow: inset 0 5px 15px rgba(255, 182, 193, 0.1); }
+            100% { box-shadow: inset 0 5px 15px rgba(255, 182, 193, 0.4); }
+        }
+        
+        .panda-head {
             position: absolute;
             width: 180px;
-            height: 180px;
-            background: #fff;
-            border-radius: 50%;
-            top: 35px;
-            left: 35px;
-            box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 160px;
+            background: #000;
+            border-radius: 45% 45% 40% 40%;
+            bottom: 150px;
+            left: 85px;
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.3),
+                inset 0 -10px 20px rgba(100, 100, 100, 0.1);
+            animation: headTilt 8s infinite alternate;
+            z-index: 3;
+        }
+        
+        @keyframes headTilt {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
         }
         
         .panda-ear {
@@ -241,142 +363,196 @@
             height: 70px;
             background: #000;
             border-radius: 50%;
-            top: 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            border: 2px solid #333;
+            top: -20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            animation: earWiggle 2s infinite;
+            z-index: 2;
         }
         
-        .panda-ear.left { left: 40px; }
-        .panda-ear.right { right: 40px; }
+        .panda-ear.left {
+            left: 20px;
+            animation-delay: 0s;
+        }
         
-        .panda-ear::after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: rgba(100, 100, 100, 0.2);
-            border-radius: 50%;
-            top: 15px;
-            left: 15px;
+        .panda-ear.right {
+            right: 20px;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes earWiggle {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
         }
         
         .panda-eye-patch {
             position: absolute;
-            width: 90px;
-            height: 70px;
+            width: 80px;
+            height: 60px;
             background: #000;
             border-radius: 50%;
-            top: 60px;
-            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.3);
-            border: 2px solid #222;
+            top: 40px;
+            overflow: hidden;
+            box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.3);
         }
         
-        .panda-eye-patch.left { left: 30px; }
-        .panda-eye-patch.right { right: 30px; }
+        .panda-eye-patch.left { left: 15px; }
+        .panda-eye-patch.right { right: 15px; }
         
         .panda-eye {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             background: white;
             border-radius: 50%;
-            top: 15px;
-            left: 25px;
+            top: 7px;
+            left: 17px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid #aaa;
+            animation: blink 5s infinite;
         }
         
-        .panda-eye::before {
-            content: '';
+        @keyframes blink {
+            0%, 45%, 55%, 100% { 
+                height: 45px;
+                top: 7px;
+            }
+            48%, 52% { 
+                height: 5px;
+                top: 27px;
+            }
+            50% { 
+                height: 2px;
+                top: 29px;
+            }
+        }
+        
+        .panda-pupil {
             position: absolute;
             width: 25px;
             height: 25px;
             background: #000;
             border-radius: 50%;
-            top: 7px;
-            left: 7px;
-            animation: blink 5s infinite;
-            border: 1px solid #333;
-        }
-        
-        .panda-eye::after {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 50%;
             top: 10px;
             left: 10px;
+            animation: pupilMove 10s infinite;
         }
         
-        @keyframes blink {
-            0%, 45%, 55%, 100% { transform: scaleY(1); }
-            48%, 52% { transform: scaleY(0.1); }
-            50% { transform: scaleY(0.05); }
+        @keyframes pupilMove {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(5px, 0); }
+            50% { transform: translate(0, 5px); }
+            75% { transform: translate(-5px, 0); }
+        }
+        
+        .panda-eye-sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            top: 5px;
+            right: 8px;
+            animation: sparkle 2s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
         }
         
         .panda-nose {
             position: absolute;
-            width: 30px;
+            width: 25px;
             height: 20px;
-            background: #000;
-            border-radius: 50%;
-            top: 140px;
+            background: #FF6B8B;
+            border-radius: 40% 40% 50% 50%;
+            top: 85px;
             left: 50%;
             transform: translateX(-50%);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid #333;
+            animation: noseWiggle 3s infinite;
+            z-index: 4;
+        }
+        
+        @keyframes noseWiggle {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
         }
         
         .panda-mouth {
             position: absolute;
-            width: 60px;
-            height: 30px;
+            width: 50px;
+            height: 25px;
             border-bottom: 8px solid #000;
-            border-radius: 0 0 60px 60px;
-            top: 170px;
+            border-radius: 0 0 50px 50px;
+            top: 105px;
             left: 50%;
             transform: translateX(-50%);
-            animation: smile 10s infinite;
-            border-left: 2px solid #333;
-            border-right: 2px solid #333;
+            animation: smileCycle 10s infinite;
+            z-index: 4;
         }
         
-        @keyframes smile {
-            0%, 70%, 100% { width: 60px; }
-            75%, 95% { width: 80px; }
+        @keyframes smileCycle {
+            0%, 70%, 100% { width: 50px; }
+            75%, 95% { width: 70px; }
         }
         
         .panda-arm {
             position: absolute;
-            width: 80px;
+            width: 70px;
             height: 40px;
             background: #000;
-            border-radius: 40px;
-            bottom: 60px;
-            animation: armMove 8s infinite;
-            border: 2px solid #222;
+            border-radius: 35px;
+            bottom: 80px;
+            animation: armSwing 6s infinite alternate;
+            z-index: 1;
         }
         
         .panda-arm.left {
-            left: 30px;
-            transform: rotate(30deg);
+            left: 45px;
+            transform: rotate(45deg);
+            transform-origin: top center;
         }
         
         .panda-arm.right {
-            right: 30px;
-            transform: rotate(-30deg);
+            right: 45px;
+            transform: rotate(-45deg);
+            transform-origin: top center;
         }
         
-        @keyframes armMove {
-            0%, 100% { transform: rotate(30deg); }
-            50% { transform: rotate(20deg); }
+        @keyframes armSwing {
+            0%, 100% { transform: rotate(45deg); }
+            50% { transform: rotate(25deg); }
         }
         
-        /* Panda Interaction Effects */
-        .interaction-effects {
+        .panda-leg {
+            position: absolute;
+            width: 60px;
+            height: 40px;
+            background: #000;
+            border-radius: 30px;
+            bottom: 10px;
+            animation: legTap 3s infinite;
+            z-index: 1;
+        }
+        
+        .panda-leg.left {
+            left: 90px;
+            animation-delay: 0s;
+        }
+        
+        .panda-leg.right {
+            right: 90px;
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes legTap {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Interactive Particles */
+        .interaction-particles {
             position: fixed;
             width: 100%;
             height: 100%;
@@ -384,467 +560,517 @@
             z-index: 5;
         }
         
-        .snow-particle {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0;
-            animation: snowFloat 3s forwards;
-            box-shadow: 0 0 5px white;
-        }
-        
-        @keyframes snowFloat {
-            0% { 
-                transform: translate(0, 0) scale(0); 
-                opacity: 0; 
-            }
-            10% { 
-                transform: translate(var(--tx), var(--ty)) scale(1); 
-                opacity: 0.8; 
-            }
-            90% { 
-                opacity: 0.8; 
-            }
-            100% { 
-                transform: translate(calc(var(--tx) * 2), calc(var(--ty) * 3)) scale(0); 
-                opacity: 0; 
-            }
-        }
-        
-        /* Bamboo Eating Animation */
-        .bamboo-piece {
+        .bamboo-particle {
             position: absolute;
             width: 15px;
             height: 60px;
-            background: linear-gradient(to right, #444, #333, #444);
+            background: linear-gradient(to bottom, #4CAF50, #2E7D32);
             border-radius: 7px;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%) rotate(30deg);
-            display: none;
-            animation: chew 2s infinite;
-            border: 1px solid #555;
+            opacity: 0;
+            animation: bambooFloat 3s forwards;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform-origin: bottom center;
         }
         
-        @keyframes chew {
-            0%, 100% { transform: translateX(-50%) rotate(30deg) translateY(0); }
-            50% { transform: translateX(-50%) rotate(30deg) translateY(-10px); }
+        @keyframes bambooFloat {
+            0% { 
+                transform: translateY(0) rotate(0deg) scale(0); 
+                opacity: 0; 
+            }
+            10% { 
+                transform: translateY(0) rotate(var(--rotation)) scale(1); 
+                opacity: 1; 
+            }
+            90% { 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(-100vh) rotate(calc(var(--rotation) * 2)) scale(0.5); 
+                opacity: 0; 
+            }
         }
         
-        /* Heart Trail */
-        .heart-trail {
-            position: fixed;
+        .heart-particle {
+            position: absolute;
             font-size: 20px;
-            color: white;
-            pointer-events: none;
-            z-index: 4;
-            animation: trailFade 1s forwards;
-            text-shadow: 0 0 10px white;
+            opacity: 0;
+            animation: heartFloat 2s forwards;
+            filter: drop-shadow(0 0 5px rgba(255, 107, 139, 0.5));
         }
         
-        @keyframes trailFade {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0.5); }
+        @keyframes heartFloat {
+            0% { 
+                transform: translate(0, 0) scale(0) rotate(0deg); 
+                opacity: 0; 
+            }
+            20% { 
+                transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(180deg); 
+                opacity: 1; 
+            }
+            80% { 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(calc(var(--tx) * 1.5), calc(var(--ty) * 2)) scale(0) rotate(360deg); 
+                opacity: 0; 
+            }
         }
         
-        /* Private Message */
-        .private-message {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 20px 40px;
-            border-radius: 50px;
-            color: white;
-            font-size: 1.1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            z-index: 100;
+        /* Cute Message Bubble */
+        .panda-message {
+            position: absolute;
+            background: white;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border: 5px solid #FFD1DC;
+            max-width: 300px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
             display: none;
-            animation: messageSlide 0.5s;
+            z-index: 20;
+            animation: messagePop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         
-        @keyframes messageSlide {
-            from { transform: translateX(-50%) translateY(100px); opacity: 0; }
-            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        @keyframes messagePop {
+            0% { transform: scale(0); opacity: 0; }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
         }
         
-        /* Hidden Love Counter */
+        .message-tail {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #FFD1DC;
+        }
+        
+        /* Love Counter */
         .love-counter {
             position: fixed;
             top: 20px;
-            left: 20px;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.2rem;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3);
+            font-size: 1.3rem;
+            color: #FF6B8B;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             z-index: 100;
+            animation: counterPop 1s;
         }
         
-        /* Ambient Fireflies */
-        .firefly {
-            position: fixed;
-            width: 6px;
-            height: 6px;
-            background: white;
-            border-radius: 50%;
-            filter: blur(1px);
-            box-shadow: 0 0 10px white;
-            animation: fireflyMove 15s infinite linear;
-            z-index: 1;
-        }
-        
-        @keyframes fireflyMove {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(100px, 50px); }
-            50% { transform: translate(50px, 100px); }
-            75% { transform: translate(-50px, 50px); }
-            100% { transform: translate(0, 0); }
-        }
-        
-        /* Snowfall */
-        .snowfall {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .snowflake {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: snowfall linear infinite;
-            opacity: 0.8;
-            box-shadow: 0 0 5px white;
-        }
-        
-        @keyframes snowfall {
-            0% { transform: translateY(-100px) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
+        @keyframes counterPop {
+            0% { transform: scale(0) rotate(-180deg); }
+            100% { transform: scale(1) rotate(0deg); }
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .secret-title {
-                font-size: 2rem;
+            .message-title {
+                font-size: 2.5rem;
             }
             
-            .panda-container {
-                width: 250px;
-                height: 250px;
+            .panda-home {
+                width: 280px;
+                height: 280px;
             }
             
             .panda-body {
-                width: 200px;
-                height: 200px;
+                width: 160px;
+                height: 180px;
+                left: 60px;
             }
             
-            .panda-white-fur {
-                width: 140px;
-                height: 140px;
-                top: 30px;
-                left: 30px;
-            }
-            
-            .moon {
-                width: 60px;
-                height: 60px;
-                top: 20px;
-                right: 20px;
+            .panda-head {
+                width: 150px;
+                height: 130px;
+                left: 65px;
+                bottom: 130px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Starry Night Sky -->
-    <div class="stars" id="stars"></div>
+    <!-- Animated Clouds -->
+    <div class="clouds" id="clouds"></div>
     
-    <!-- Moon -->
-    <div class="moon"></div>
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
     
-    <!-- Snowfall -->
-    <div class="snowfall" id="snowfall"></div>
+    <!-- Bamboo Garden -->
+    <div class="bamboo-garden" id="bambooGarden"></div>
     
-    <!-- Bamboo Forest -->
-    <div class="bamboo-forest" id="bambooForest"></div>
-    
-    <!-- Ambient Fireflies -->
-    <div id="fireflies"></div>
-    
-    <!-- Interaction Effects -->
-    <div class="interaction-effects" id="effects"></div>
+    <!-- Interaction Particles -->
+    <div class="interaction-particles" id="particles"></div>
     
     <div class="container">
-        <!-- Secret Welcome -->
-        <div class="secret-welcome">
-            <h1 class="secret-title">My Black & White World 🐼</h1>
-            <p class="secret-message">
-                In a world of black and white,<br>
-                You bring all the color to my life.<br>
-                Touch the panda and watch magic unfold,<br>
-                In this secret garden, our story is told.
+        <!-- Welcome Message -->
+        <div class="welcome-message">
+            <h1 class="message-title">Welcome to Panda Paradise! 🐼</h1>
+            <p class="message-text">
+                This cute panda is waiting just for you!<br>
+                Give it a click, a hug, or just say hello!<br>
+                Watch as magic happens all around!
             </p>
+            <div class="heart-beat">💖</div>
+            <div class="heart-beat" style="animation-delay: 0.2s">💕</div>
+            <div class="heart-beat" style="animation-delay: 0.4s">💗</div>
         </div>
         
-        <!-- Realistic Black & White Panda -->
-        <div class="panda-container" id="mainPanda">
+        <!-- Ultra Cute Animated Panda -->
+        <div class="panda-home" id="pandaHome">
+            <div class="panda-platform"></div>
             <div class="panda-body">
-                <div class="panda-fur"></div>
-                <div class="panda-white-fur"></div>
+                <div class="panda-tummy"></div>
+            </div>
+            <div class="panda-head">
                 <div class="panda-ear left"></div>
                 <div class="panda-ear right"></div>
                 <div class="panda-eye-patch left">
-                    <div class="panda-eye"></div>
+                    <div class="panda-eye">
+                        <div class="panda-pupil"></div>
+                        <div class="panda-eye-sparkle"></div>
+                    </div>
                 </div>
                 <div class="panda-eye-patch right">
-                    <div class="panda-eye"></div>
+                    <div class="panda-eye">
+                        <div class="panda-pupil"></div>
+                        <div class="panda-eye-sparkle"></div>
+                    </div>
                 </div>
                 <div class="panda-nose"></div>
                 <div class="panda-mouth"></div>
-                <div class="panda-arm left"></div>
-                <div class="panda-arm right"></div>
             </div>
+            <div class="panda-arm left"></div>
+            <div class="panda-arm right"></div>
+            <div class="panda-leg left"></div>
+            <div class="panda-leg right"></div>
         </div>
         
-        <!-- Bamboo Piece (for eating animation) -->
-        <div class="bamboo-piece" id="bambooPiece"></div>
+        <!-- Panda Message Bubble -->
+        <div class="panda-message" id="pandaMessage">
+            <div class="message-tail" id="messageTail"></div>
+            <div id="messageText">Hello there! 👋🐼</div>
+        </div>
         
-        <!-- Hidden Love Counter -->
+        <!-- Love Counter -->
         <div class="love-counter">
-            <i class="fas fa-heart" style="color: white;"></i> <span id="loveScore" style="color: white;">0</span>
+            <i class="fas fa-heart"></i> <span id="loveScore">0</span> Cuddles
         </div>
-        
-        <!-- Private Message Display -->
-        <div class="private-message" id="privateMessage"></div>
     </div>
 
     <script>
-        // Initialize the black & white panda sanctuary
+        // Initialize the ultra cute panda world
         document.addEventListener('DOMContentLoaded', function() {
-            createStars();
-            createSnowfall();
-            createBambooForest();
-            createFireflies();
+            createClouds();
+            createFloatingHearts();
+            createBambooGarden();
             initPandaInteractions();
-            initMouseTrail();
-            startAmbientSounds();
+            startAmbientAnimations();
             
-            // Special message for her
-            console.log("%c🐼 Welcome to our monochrome paradise", 
-                "color: white; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px white;");
-            console.log("%cBlack and white, just like our panda, but you add all the color to my world.",
-                "color: #ccc; font-size: 16px;");
+            // Welcome message in console
+            console.log("%c🐼 Welcome to the cutest panda paradise! 💖", 
+                "color: #FF6B8B; font-size: 22px; font-weight: bold;");
+            console.log("%cThis panda was made with extra love just for you!",
+                "color: #4ECDC4; font-size: 16px;");
         });
         
-        // Create starry night sky
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const starCount = 200;
+        // Create animated clouds
+        function createClouds() {
+            const cloudsContainer = document.getElementById('clouds');
+            const cloudCount = 8;
             
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.width = Math.random() * 3 + 1 + 'px';
-                star.style.height = star.style.width;
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.opacity = Math.random() * 0.7 + 0.3;
-                starsContainer.appendChild(star);
+            for (let i = 0; i < cloudCount; i++) {
+                const cloud = document.createElement('div');
+                const size = ['small', 'medium', 'large'][Math.floor(Math.random() * 3)];
+                cloud.className = `cloud ${size}`;
+                
+                cloud.style.top = Math.random() * 70 + 10 + '%';
+                cloud.style.left = Math.random() * 100 + '%';
+                cloud.style.opacity = Math.random() * 0.4 + 0.3;
+                cloud.style.animationDelay = Math.random() * 60 + 's';
+                cloud.style.animationDuration = (Math.random() * 40 + 40) + 's';
+                
+                // Create cloud puffs
+                if (size === 'small') {
+                    cloud.style.setProperty('--before-size', '40px');
+                    cloud.style.setProperty('--after-size', '35px');
+                } else if (size === 'medium') {
+                    cloud.style.setProperty('--before-size', '60px');
+                    cloud.style.setProperty('--after-size', '55px');
+                } else {
+                    cloud.style.setProperty('--before-size', '80px');
+                    cloud.style.setProperty('--after-size', '70px');
+                }
+                
+                cloud.style.setProperty('--before-top', '-20px');
+                cloud.style.setProperty('--before-left', '20px');
+                cloud.style.setProperty('--after-top', '-15px');
+                cloud.style.setProperty('--after-right', '25px');
+                
+                cloudsContainer.appendChild(cloud);
             }
         }
         
-        // Create snowfall
-        function createSnowfall() {
-            const snowfall = document.getElementById('snowfall');
-            const snowflakeCount = 100;
+        // Create floating hearts
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('floatingHearts');
+            const heartCount = 25;
+            const heartTypes = ['💖', '💕', '💗', '💓', '💞', '💘', '🐼', '🎋'];
             
-            for (let i = 0; i < snowflakeCount; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.className = 'snowflake';
-                snowflake.style.width = Math.random() * 5 + 2 + 'px';
-                snowflake.style.height = snowflake.style.width;
-                snowflake.style.left = Math.random() * 100 + 'vw';
-                snowflake.style.animationDuration = Math.random() * 10 + 5 + 's';
-                snowflake.style.animationDelay = Math.random() * 5 + 's';
-                snowflake.style.opacity = Math.random() * 0.5 + 0.3;
-                snowfall.appendChild(snowflake);
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 20 + 's';
+                heart.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                heartsContainer.appendChild(heart);
             }
         }
         
-        // Create bamboo forest
-        function createBambooForest() {
-            const forest = document.getElementById('bambooForest');
-            const stalkCount = 15;
+        // Create bamboo garden
+        function createBambooGarden() {
+            const garden = document.getElementById('bambooGarden');
+            const plantCount = 12;
             
-            for (let i = 0; i < stalkCount; i++) {
-                const stalk = document.createElement('div');
-                stalk.className = 'bamboo-stalk';
-                stalk.style.height = Math.random() * 200 + 150 + 'px';
-                stalk.style.animationDelay = Math.random() * 8 + 's';
+            for (let i = 0; i < plantCount; i++) {
+                const plant = document.createElement('div');
+                plant.className = 'bamboo-plant';
+                const height = Math.random() * 200 + 150;
+                plant.style.setProperty('--height', height + 'px');
+                plant.style.left = (i * (100 / plantCount)) + '%';
+                
+                // Create bamboo segments
+                const segmentCount = Math.floor(height / 40);
+                for (let j = 0; j < segmentCount; j++) {
+                    const segment = document.createElement('div');
+                    segment.className = 'bamboo-segment';
+                    segment.style.height = '35px';
+                    plant.appendChild(segment);
+                }
                 
                 // Add leaves
-                const leafCount = Math.floor(Math.random() * 3) + 2;
+                const leafCount = Math.floor(Math.random() * 5) + 3;
                 for (let j = 0; j < leafCount; j++) {
                     const leaf = document.createElement('div');
                     leaf.className = 'bamboo-leaf';
                     leaf.style.left = Math.random() * 100 + '%';
                     leaf.style.top = Math.random() * 100 + '%';
                     leaf.style.animationDelay = Math.random() * 3 + 's';
-                    leaf.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
-                    stalk.appendChild(leaf);
+                    plant.appendChild(leaf);
                 }
                 
-                forest.appendChild(stalk);
-            }
-        }
-        
-        // Create ambient fireflies
-        function createFireflies() {
-            const container = document.getElementById('fireflies');
-            const fireflyCount = 15;
-            
-            for (let i = 0; i < fireflyCount; i++) {
-                const firefly = document.createElement('div');
-                firefly.className = 'firefly';
-                firefly.style.left = Math.random() * 100 + 'vw';
-                firefly.style.top = Math.random() * 100 + 'vh';
-                firefly.style.animationDelay = Math.random() * 15 + 's';
-                firefly.style.opacity = Math.random() * 0.5 + 0.3;
-                container.appendChild(firefly);
+                garden.appendChild(plant);
             }
         }
         
         // Panda interactions
         function initPandaInteractions() {
-            const panda = document.getElementById('mainPanda');
+            const panda = document.getElementById('pandaHome');
             const pandaBody = panda.querySelector('.panda-body');
-            const bambooPiece = document.getElementById('bambooPiece');
-            let isEating = false;
+            const pandaHead = panda.querySelector('.panda-head');
+            const messageBox = document.getElementById('pandaMessage');
+            const messageText = document.getElementById('messageText');
+            const messageTail = document.getElementById('messageTail');
             let interactionCount = 0;
+            let lastClickTime = 0;
             
             // Click interaction
             panda.addEventListener('click', function(e) {
+                const now = Date.now();
+                if (now - lastClickTime < 500) return; // Prevent double clicks
+                lastClickTime = now;
+                
                 interactionCount++;
                 document.getElementById('loveScore').textContent = interactionCount;
                 
-                // Create snow particles
-                createSnowParticles(e.clientX, e.clientY);
+                // Create interaction effects
+                createBambooParticles(e.clientX, e.clientY);
+                createHeartParticles(e.clientX, e.clientY);
                 
-                // Panda reaction based on click location
-                const rect = panda.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+                // Panda reaction
+                const reactions = [
+                    {
+                        message: "Aww, thank you for the cuddle! 🐼💖",
+                        action: () => pandaHug()
+                    },
+                    {
+                        message: "You make me so happy! 💕",
+                        action: () => pandaJump()
+                    },
+                    {
+                        message: "That tickles! Hehe! 😊",
+                        action: () => pandaGiggle()
+                    },
+                    {
+                        message: "More please! You're the best! 🌟",
+                        action: () => pandaSpin()
+                    },
+                    {
+                        message: "I could hug you all day! 🤗",
+                        action: () => pandaLove()
+                    }
+                ];
                 
-                if (x > 100 && x < 200 && y > 100 && y < 200) {
-                    // Clicked on face - panda smiles
-                    panda.querySelector('.panda-mouth').style.animation = 'smile 2s infinite';
-                    showPrivateMessage("You found my smile! 🐼❄️");
-                } else if (y < 100) {
-                    // Clicked on ears - panda gets shy
-                    pandaBody.style.animation = 'pandaBreathe 0.5s infinite';
-                    setTimeout(() => {
-                        pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
-                    }, 1000);
-                    showPrivateMessage("Oh! My ears are ticklish! 🐼");
-                } else {
-                    // Random panda action
-                    const actions = [
-                        () => pandaWaves(),
-                        () => pandaEats(),
-                        () => pandaDances()
-                    ];
-                    actions[Math.floor(Math.random() * actions.length)]();
+                const reaction = reactions[Math.floor(Math.random() * reactions.length)];
+                showPandaMessage(reaction.message, e.clientX, e.clientY);
+                reaction.action();
+                
+                // Special effects every 5 interactions
+                if (interactionCount % 5 === 0) {
+                    createSpecialEffect();
                 }
                 
-                // Change moon brightness
-                const moon = document.querySelector('.moon');
-                moon.style.boxShadow = `0 0 ${60 + interactionCount % 40}px rgba(255, 255, 255, 0.6)`;
+                // Update heart counter animation
+                const counter = document.querySelector('.love-counter');
+                counter.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    counter.style.transform = 'scale(1)';
+                }, 300);
             });
             
             // Hover interaction
             panda.addEventListener('mouseenter', function() {
-                pandaBody.style.filter = 'brightness(1.3)';
-                pandaBody.style.transform = 'scale(1.05)';
+                pandaBody.style.animation = 'pandaBounce 1s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                pandaHead.style.animation = 'headTilt 3s infinite alternate';
             });
             
             panda.addEventListener('mouseleave', function() {
-                pandaBody.style.filter = 'brightness(1)';
-                pandaBody.style.transform = 'scale(1)';
+                pandaBody.style.animation = 'pandaBounce 4s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                pandaHead.style.animation = 'headTilt 8s infinite alternate';
             });
             
             // Panda actions
-            function pandaWaves() {
+            function pandaHug() {
                 const leftArm = panda.querySelector('.panda-arm.left');
                 const rightArm = panda.querySelector('.panda-arm.right');
                 
-                leftArm.style.animation = 'armMove 0.5s infinite';
-                rightArm.style.animation = 'armMove 0.5s infinite';
-                
-                showPrivateMessage("Hello beautiful! 🐼👋");
+                leftArm.style.animation = 'armSwing 0.5s infinite alternate';
+                rightArm.style.animation = 'armSwing 0.5s infinite alternate';
                 
                 setTimeout(() => {
-                    leftArm.style.animation = 'armMove 8s infinite';
-                    rightArm.style.animation = 'armMove 8s infinite';
+                    leftArm.style.animation = 'armSwing 6s infinite alternate';
+                    rightArm.style.animation = 'armSwing 6s infinite alternate';
                 }, 2000);
             }
             
-            function pandaEats() {
-                if (isEating) return;
-                isEating = true;
-                
-                // Show bamboo piece
-                bambooPiece.style.display = 'block';
-                
-                showPrivateMessage("Yummy bamboo! 🎋");
+            function pandaJump() {
+                pandaBody.style.animation = 'none';
+                pandaBody.style.transform = 'translateY(-50px) scale(1.1)';
                 
                 setTimeout(() => {
-                    bambooPiece.style.display = 'none';
-                    isEating = false;
+                    pandaBody.style.transform = 'translateY(0) scale(1)';
+                    pandaBody.style.animation = 'pandaBounce 4s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }, 800);
+            }
+            
+            function pandaGiggle() {
+                const legs = panda.querySelectorAll('.panda-leg');
+                legs.forEach(leg => {
+                    leg.style.animation = 'legTap 0.3s infinite';
+                });
+                
+                setTimeout(() => {
+                    legs.forEach(leg => {
+                        leg.style.animation = 'legTap 3s infinite';
+                    });
+                }, 1500);
+            }
+            
+            function pandaSpin() {
+                pandaBody.style.animation = 'none';
+                pandaBody.style.transition = 'transform 1s';
+                pandaBody.style.transform = 'rotate(360deg) scale(1.1)';
+                
+                setTimeout(() => {
+                    pandaBody.style.transition = 'none';
+                    pandaBody.style.transform = 'rotate(0deg) scale(1)';
+                    pandaBody.style.animation = 'pandaBounce 4s infinite cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                }, 1000);
+            }
+            
+            function pandaLove() {
+                // Create heart explosion
+                for (let i = 0; i < 30; i++) {
+                    setTimeout(() => {
+                        createHeartParticles(
+                            panda.offsetLeft + panda.offsetWidth / 2,
+                            panda.offsetTop + panda.offsetHeight / 2
+                        );
+                    }, i * 50);
+                }
+                
+                // Make panda blush
+                const nose = panda.querySelector('.panda-nose');
+                nose.style.background = '#FF4081';
+                setTimeout(() => {
+                    nose.style.background = '#FF6B8B';
+                }, 1000);
+            }
+            
+            function showPandaMessage(text, x, y) {
+                messageText.textContent = text;
+                messageBox.style.display = 'block';
+                
+                // Position message near click
+                const rect = panda.getBoundingClientRect();
+                messageBox.style.left = (rect.left + rect.width / 2 - 150) + 'px';
+                messageBox.style.top = (rect.top - 100) + 'px';
+                messageTail.style.left = '50%';
+                messageTail.style.top = '100%';
+                messageTail.style.transform = 'translateX(-50%)';
+                
+                // Hide message after 3 seconds
+                setTimeout(() => {
+                    messageBox.style.display = 'none';
                 }, 3000);
             }
             
-            function pandaDances() {
-                pandaBody.style.animation = 'none';
-                pandaBody.style.transform = 'rotate(10deg)';
+            function createSpecialEffect() {
+                // Rainbow background
+                const originalBg = document.body.style.background;
+                const colors = ['#FFB6C1', '#FFDAC1', '#E2F0CB', '#B5EAD7', '#C7CEEA'];
+                let colorIndex = 0;
                 
+                const rainbowInterval = setInterval(() => {
+                    document.body.style.background = colors[colorIndex];
+                    colorIndex = (colorIndex + 1) % colors.length;
+                }, 200);
+                
+                // Stop after 3 seconds
                 setTimeout(() => {
-                    pandaBody.style.transform = 'rotate(-10deg)';
-                }, 300);
-                
-                setTimeout(() => {
-                    pandaBody.style.transform = 'rotate(0deg)';
-                    pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
-                }, 600);
-                
-                showPrivateMessage("Let's dance in the snow! 💃🐼");
+                    clearInterval(rainbowInterval);
+                    document.body.style.background = originalBg;
+                    showPandaMessage("Rainbow magic! 🌈✨", 0, 0);
+                }, 3000);
             }
         }
         
-        // Create snow particles
-        function createSnowParticles(x, y) {
-            const effects = document.getElementById('effects');
-            const particleCount = 20;
+        // Create bamboo particles
+        function createBambooParticles(x, y) {
+            const particles = document.getElementById('particles');
+            const particleCount = 8;
             
             for (let i = 0; i < particleCount; i++) {
                 setTimeout(() => {
                     const particle = document.createElement('div');
-                    particle.className = 'snow-particle';
+                    particle.className = 'bamboo-particle';
                     particle.style.left = x + 'px';
                     particle.style.top = y + 'px';
-                    particle.style.width = Math.random() * 8 + 4 + 'px';
-                    particle.style.height = particle.style.width;
-                    particle.style.background = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
+                    particle.style.setProperty('--rotation', (Math.random() * 60 - 30) + 'deg');
+                    particle.style.animationDelay = (i * 0.1) + 's';
                     
-                    // Random direction
-                    const angle = Math.random() * Math.PI * 2;
-                    const distance = Math.random() * 100 + 50;
-                    particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
-                    particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
-                    
-                    effects.appendChild(particle);
+                    particles.appendChild(particle);
                     
                     // Remove particle after animation
                     setTimeout(() => {
@@ -852,211 +1078,107 @@
                             particle.parentNode.removeChild(particle);
                         }
                     }, 3000);
-                }, i * 30);
+                }, i * 100);
             }
         }
         
-        // Heart trail on mouse movement
-        function initMouseTrail() {
-            let lastX = 0;
-            let lastY = 0;
-            let trailDelay = 0;
+        // Create heart particles
+        function createHeartParticles(x, y) {
+            const particles = document.getElementById('particles');
+            const particleCount = 12;
+            const heartTypes = ['💖', '💕', '💗', '💓', '💞', '💘'];
             
-            document.addEventListener('mousemove', function(e) {
-                const now = Date.now();
-                if (now - trailDelay < 50) return;
-                trailDelay = now;
-                
-                // Only create trail if mouse moved significantly
-                const dx = e.clientX - lastX;
-                const dy = e.clientY - lastY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance > 20) {
-                    createSnowTrail(e.clientX, e.clientY);
-                    lastX = e.clientX;
-                    lastY = e.clientY;
-                }
-            });
-        }
-        
-        function createSnowTrail(x, y) {
-            const trail = document.createElement('div');
-            trail.className = 'heart-trail';
-            trail.textContent = '❄️';
-            trail.style.left = x + 'px';
-            trail.style.top = y + 'px';
-            trail.style.fontSize = Math.random() * 15 + 10 + 'px';
-            
-            document.body.appendChild(trail);
-            
-            // Remove trail after animation
-            setTimeout(() => {
-                if (trail.parentNode) {
-                    trail.parentNode.removeChild(trail);
-                }
-            }, 1000);
-        }
-        
-        // Show private messages
-        function showPrivateMessage(text) {
-            const messageBox = document.getElementById('privateMessage');
-            messageBox.textContent = text;
-            messageBox.style.display = 'block';
-            
-            // Hide after 3 seconds
-            setTimeout(() => {
-                messageBox.style.display = 'none';
-            }, 3000);
-        }
-        
-        // Ambient nature sounds
-        function startAmbientSounds() {
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                
-                // Wind sound
-                const windGain = audioContext.createGain();
-                windGain.gain.value = 0.03;
-                windGain.connect(audioContext.destination);
-                
-                function createWindOscillator() {
-                    const oscillator = audioContext.createOscillator();
-                    const gainNode = audioContext.createGain();
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'heart-particle';
+                    particle.textContent = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.color = `hsl(${Math.random() * 60 + 300}, 100%, 65%)`;
+                    particle.style.fontSize = Math.random() * 25 + 20 + 'px';
                     
-                    oscillator.connect(gainNode);
-                    gainNode.connect(windGain);
+                    // Random direction
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * 100 + 80;
+                    particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                    particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
                     
-                    oscillator.frequency.value = 80 + Math.random() * 40;
-                    oscillator.type = 'sine';
+                    particles.appendChild(particle);
                     
-                    gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
-                    gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 4 + Math.random() * 3);
-                    
-                    oscillator.start(audioContext.currentTime);
-                    oscillator.stop(audioContext.currentTime + 4 + Math.random() * 3);
-                    
-                    // Create next wind sound
-                    setTimeout(createWindOscillator, 3000 + Math.random() * 4000);
-                }
-                
-                // Start wind sounds
-                createWindOscillator();
-                
-            } catch (e) {
-                // Audio not supported - silent mode
+                    // Remove particle after animation
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 2000);
+                }, i * 50);
             }
         }
         
-        // Keyboard shortcuts for special interactions
+        // Start ambient animations
+        function startAmbientAnimations() {
+            // Random panda actions every 10-20 seconds
+            setInterval(() => {
+                const actions = [
+                    () => createHeartParticles(
+                        window.innerWidth / 2,
+                        window.innerHeight / 2
+                    ),
+                    () => {
+                        const message = document.getElementById('pandaMessage');
+                        if (message.style.display === 'none') {
+                            const messages = [
+                                "I'm so happy you're here! 🐼💕",
+                                "You're my favorite person! 🌟",
+                                "Want to play with me? 🎋",
+                                "Life is better with you! 💖",
+                                "You make everything magical! ✨"
+                            ];
+                            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                            showPandaMessage(randomMsg, 0, 0);
+                        }
+                    }
+                ];
+                
+                actions[Math.floor(Math.random() * actions.length)]();
+            }, 10000 + Math.random() * 10000);
+        }
+        
+        // Keyboard interactions
         document.addEventListener('keydown', function(e) {
             if (e.key === ' ') {
-                // Space bar - create snow storm
-                createSnowStorm();
-            } else if (e.key === 'p' || e.key === 'P') {
-                // P key - panda party
-                createPandaParty();
-            } else if (e.key === 'm' || e.key === 'M') {
-                // M key - moon magic
-                moonMagic();
+                // Space bar - create bamboo forest
+                createBambooRain();
+            } else if (e.key === 'Enter') {
+                // Enter key - love explosion
+                createLoveExplosion();
             }
         });
         
-        function createSnowStorm() {
+        function createBambooRain() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    createBambooParticles(
+                        Math.random() * window.innerWidth,
+                        -50
+                    );
+                }, i * 100);
+            }
+            showPandaMessage("Bamboo shower! 🎋🎋🎋", 0, 0);
+        }
+        
+        function createLoveExplosion() {
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
-                    createSnowParticles(
-                        Math.random() * window.innerWidth,
-                        Math.random() * window.innerHeight
+                    createHeartParticles(
+                        window.innerWidth / 2,
+                        window.innerHeight / 2
                     );
-                }, i * 50);
+                }, i * 30);
             }
-            showPrivateMessage("Snowstorm! ❄️❄️❄️");
+            showPandaMessage("LOVE EXPLOSION! 💥💖", 0, 0);
         }
-        
-        function createPandaParty() {
-            const panda = document.getElementById('mainPanda');
-            const pandaBody = panda.querySelector('.panda-body');
-            
-            // Black and white disco
-            let isBlack = true;
-            
-            const discoInterval = setInterval(() => {
-                document.body.style.background = isBlack ? '#fff' : '#000';
-                isBlack = !isBlack;
-            }, 200);
-            
-            // Panda dances
-            pandaBody.style.animation = 'none';
-            let angle = 0;
-            const danceInterval = setInterval(() => {
-                pandaBody.style.transform = `rotate(${angle}deg) scale(1.1)`;
-                angle = (angle + 15) % 360;
-            }, 100);
-            
-            // Stop after 5 seconds
-            setTimeout(() => {
-                clearInterval(discoInterval);
-                clearInterval(danceInterval);
-                pandaBody.style.transform = 'rotate(0deg) scale(1)';
-                pandaBody.style.animation = 'pandaBreathe 4s infinite ease-in-out';
-                document.body.style.background = 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)';
-                showPrivateMessage("Black & White Party! 🎉🐼");
-            }, 5000);
-        }
-        
-        function moonMagic() {
-            const moon = document.querySelector('.moon');
-            const originalSize = moon.style.width;
-            
-            // Moon grows and pulsates
-            moon.style.animation = 'none';
-            moon.style.transition = 'all 1s';
-            moon.style.width = '200px';
-            moon.style.height = '200px';
-            moon.style.boxShadow = '0 0 100px rgba(255, 255, 255, 0.8)';
-            
-            // Create moon rays
-            for (let i = 0; i < 12; i++) {
-                const angle = (i * 30) * Math.PI / 180;
-                const distance = 150;
-                const x = Math.cos(angle) * distance;
-                const y = Math.sin(angle) * distance;
-                
-                createSnowParticles(
-                    window.innerWidth - 100 + x,
-                    100 + y
-                );
-            }
-            
-            showPrivateMessage("Moon magic! 🌕✨");
-            
-            // Return to normal
-            setTimeout(() => {
-                moon.style.width = originalSize;
-                moon.style.height = originalSize;
-                moon.style.boxShadow = '0 0 60px rgba(255, 255, 255, 0.5)';
-                moon.style.animation = 'moonFloat 15s infinite ease-in-out';
-            }, 3000);
-        }
-        
-        // Auto-interaction every minute to keep it alive
-        setInterval(() => {
-            const panda = document.getElementById('mainPanda');
-            const rect = panda.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            
-            createSnowParticles(x, y);
-            
-            // Random panda action
-            const actions = [
-                () => {}, 
-                () => showPrivateMessage("Thinking of you always ❤️"), 
-                () => pandaWaves()
-            ];
-            actions[Math.floor(Math.random() * actions.length)]();
-        }, 60000);
     </script>
 </body>
 </html>
